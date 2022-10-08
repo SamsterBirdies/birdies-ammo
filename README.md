@@ -1,4 +1,4 @@
-# Birdies-Guns
+# birdies-ammo
  The official repository for the mod "Birdies' Ammo" for Forts on the Steam workshop.
  
 You are allowed to upload your own version of Birdies Ammo to the Forts steam workshop or copy anything from this mod for use on the Forts Steam workshop.
