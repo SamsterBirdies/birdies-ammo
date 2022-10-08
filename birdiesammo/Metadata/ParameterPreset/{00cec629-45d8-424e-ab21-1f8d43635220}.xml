@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.01.00">
+	<object class="ParameterPreset" id="{00cec629-45d8-424e-ab21-1f8d43635220}">
+		<property name="note">
+			<value>used to change sound based on phantoms silencer ability</value>
+		</property>
+		<property name="name">
+			<value>silenced</value>
+		</property>
+		<relationship name="folder">
+			<destination>{576b06cc-4b97-05fa-2d2d-6638c4dc923b}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{cbe09648-c563-4deb-a3f7-20dfc62755bc}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{cbe09648-c563-4deb-a3f7-20dfc62755bc}">
+		<property name="maximum">
+			<value>2</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>
