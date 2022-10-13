@@ -1,4 +1,5 @@
 dofile("scripts/type.lua")
+dofile("scripts/sprites_utility.lua")
 --globals
 SBBA_PATH = path
 --start emp
@@ -107,9 +108,9 @@ table.insert(Sprites,
 		{  
 			Frames =
 			{
-				{ texture = path .. "/weapons/mortars/allinone0.png" },
-				{ texture = path .. "/weapons/mortars/allinone1.png" },
-				{ texture = path .. "/weapons/mortars/allinone2.png" },
+				{ texture = path .. "/weapons/mortars/allinone_sheet.png", top = 0/3, bottom = 1/3 },
+				{ texture = path .. "/weapons/mortars/allinone_sheet.png", top = 1/3, bottom = 2/3 },
+				{ texture = path .. "/weapons/mortars/allinone_sheet.png", top = 2/3, bottom = 3/3 },
 				duration = 0.04,
 				mipmap = true,
 			},
@@ -689,6 +690,7 @@ if sbLaserEXT then
 	table.insert(Projectiles, sbLaserEXT)
 end
 ------------------START ARTILLERY BARRAGE--------------------------------------------
+--sprite
 table.insert(Sprites,
 {
 	Name = "sbFlareSpin",
@@ -698,38 +700,18 @@ table.insert(Sprites,
 		Normal =  
 		{  
 			Frames =
-			{
-				{ texture = path .. "/weapons/orbital/flare0.png" },
-				{ texture = path .. "/weapons/orbital/flare2.png" },
-				{ texture = path .. "/weapons/orbital/flare4.png" },
-				{ texture = path .. "/weapons/orbital/flare6.png" },
-				{ texture = path .. "/weapons/orbital/flare8.png" },
-				{ texture = path .. "/weapons/orbital/flare10.png" },
-				{ texture = path .. "/weapons/orbital/flare12.png" },
-				{ texture = path .. "/weapons/orbital/flare14.png" },
-				{ texture = path .. "/weapons/orbital/flare16.png" },
-				{ texture = path .. "/weapons/orbital/flare18.png" },
-				{ texture = path .. "/weapons/orbital/flare20.png" },
-				{ texture = path .. "/weapons/orbital/flare22.png" },	
-				{ texture = path .. "/weapons/orbital/flare1.png" },
-				{ texture = path .. "/weapons/orbital/flare3.png" },
-				{ texture = path .. "/weapons/orbital/flare5.png" },
-				{ texture = path .. "/weapons/orbital/flare7.png" },
-				{ texture = path .. "/weapons/orbital/flare9.png" },
-				{ texture = path .. "/weapons/orbital/flare11.png" },
-				{ texture = path .. "/weapons/orbital/flare13.png" },
-				{ texture = path .. "/weapons/orbital/flare15.png" },
-				{ texture = path .. "/weapons/orbital/flare17.png" },
-				{ texture = path .. "/weapons/orbital/flare19.png" },
-				{ texture = path .. "/weapons/orbital/flare21.png" },
-				{ texture = path .. "/weapons/orbital/flare23.png" },
-				duration = 0.04,
-				mipmap = true,
-			},
+			{},
 			NextState = "Normal",
 		},
 	},
 })
+local flareFrames = FindSprite(Sprites, "sbFlareSpin").States.Normal.Frames
+for i = 0, 11, 1 do
+	table.insert(flareFrames, { texture = path .. "/weapons/orbital/flare_sheet.png", top = i/12, bottom = (i+1) / 12})
+end
+flareFrames.duration = 0.04
+flareFrames.mipmap = true
+--data
 local sbOrbArtillery = DeepCopy(FindProjectile("ol_marker_sweep"))
 if sbOrbArtillery then
 	sbOrbArtillery.SaveName = "sbOrbitalArtilleryMarker"
