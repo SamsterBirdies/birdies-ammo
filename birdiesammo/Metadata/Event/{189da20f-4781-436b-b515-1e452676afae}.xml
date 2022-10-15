@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.02.01.00">
+<objects serializationModel="Studio.02.02.00">
 	<object class="Event" id="{189da20f-4781-436b-b515-1e452676afae}">
 		<property name="name">
 			<value>shotgunflak</value>
@@ -64,7 +64,7 @@
 			<destination>{f4851613-42be-4a88-a47f-96c38de1b56d}</destination>
 		</relationship>
 		<relationship name="output">
-			<destination>{018e26de-ab52-41f3-8404-a7d35b663526}</destination>
+			<destination>{92f7025f-bf05-4f70-afde-cc14deac8f2f}</destination>
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{4498d523-7709-4e82-8ccf-78f035944b57}">
@@ -73,6 +73,12 @@
 		</property>
 		<property name="priority">
 			<value>3</value>
+		</property>
+		<property name="minimumDistance">
+			<value>2000</value>
+		</property>
+		<property name="maximumDistance">
+			<value>10000</value>
 		</property>
 	</object>
 	<object class="MarkerTrack" id="{5fd29e3b-28ca-4875-be71-410819dfd127}" />

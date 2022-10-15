@@ -21,6 +21,7 @@ ReloadTime = 45
 EnergyFireCost = 10000/BeamDuration
 FireStdDevAuto = 0.0
 HitPoints = 800
+CanFireUnderwater = true
 Root =
 {
 	Name = "Laser",

@@ -1,5 +1,4 @@
 dofile("effects/device_explode_util.lua")
-
 --  age (in seconds) at which the explosion actor deletes itself
 --  make sure this exceedes the age of all effects
 LifeSpan = 8

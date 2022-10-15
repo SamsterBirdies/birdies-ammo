@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.02.01.00">
+<objects serializationModel="Studio.02.02.00">
 	<object class="EffectPreset" id="{0ea6117c-8223-4d6f-abd7-ef17cca94fe6}">
 		<property name="name">
 			<value>Cloaked Gain</value>

@@ -1,5 +1,5 @@
 dofile("scripts/type.lua")
-dofile("scripts/sprites_utility.lua")
+dofile(path .. "/scripts/sbutil.lua")
 --globals
 SBBA_PATH = path
 --start emp
@@ -690,27 +690,14 @@ if sbLaserEXT then
 	table.insert(Projectiles, sbLaserEXT)
 end
 ------------------START ARTILLERY BARRAGE--------------------------------------------
---sprite
-table.insert(Sprites,
-{
-	Name = "sbFlareSpin",
-			
-	States =
-	{
-		Normal =  
-		{  
-			Frames =
-			{},
-			NextState = "Normal",
-		},
-	},
+table.insert(Sprites, 
+{ 
+	Name = "sbFlareSpin", 
+	States = 
+	{ 
+		Normal = { Frames = SpriteSheet(path .. "/weapons/orbital/flare_sheet.png", 12, 1, 0.04), NextState = "Normal"}
+	}
 })
-local flareFrames = FindSprite(Sprites, "sbFlareSpin").States.Normal.Frames
-for i = 0, 11, 1 do
-	table.insert(flareFrames, { texture = path .. "/weapons/orbital/flare_sheet.png", top = i/12, bottom = (i+1) / 12})
-end
-flareFrames.duration = 0.04
-flareFrames.mipmap = true
 --data
 local sbOrbArtillery = DeepCopy(FindProjectile("ol_marker_sweep"))
 if sbOrbArtillery then

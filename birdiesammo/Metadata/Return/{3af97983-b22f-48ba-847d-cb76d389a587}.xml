@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.02.01.00">
+<objects serializationModel="Studio.02.02.00">
 	<object class="MixerReturn" id="{3af97983-b22f-48ba-847d-cb76d389a587}">
+		<property name="color">
+			<value>Blue</value>
+		</property>
 		<property name="overridingInputFormat">
 			<value>2</value>
 		</property>
@@ -14,7 +17,7 @@
 			<destination>{767d54e4-ed3a-41db-a142-5cd9bc5e9dc0}</destination>
 		</relationship>
 		<relationship name="output">
-			<destination>{92f7025f-bf05-4f70-afde-cc14deac8f2f}</destination>
+			<destination>{018e26de-ab52-41f3-8404-a7d35b663526}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusEffectChain" id="{135fff57-dee0-4695-a07a-2d9ebd04d139}">

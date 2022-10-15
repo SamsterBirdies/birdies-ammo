@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.02.01.00">
+<objects serializationModel="Studio.02.02.00">
 	<object class="EffectPreset" id="{75a318c8-c58c-4a91-ad93-c29e7cefae26}">
 		<property name="name">
 			<value>Spatializer</value>
@@ -20,6 +20,9 @@
 		</property>
 		<property name="maximumDistance">
 			<value>10000</value>
+		</property>
+		<property name="overrideRange">
+			<value>true</value>
 		</property>
 	</object>
 </objects>

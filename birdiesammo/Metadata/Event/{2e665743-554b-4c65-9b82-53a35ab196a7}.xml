@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.02.01.00">
+<objects serializationModel="Studio.02.02.00">
 	<object class="Event" id="{2e665743-554b-4c65-9b82-53a35ab196a7}">
 		<property name="name">
 			<value>trail_apache</value>
@@ -67,7 +67,7 @@
 			<destination>{ba599086-3ed6-4a9f-887e-5debad1c6ab1}</destination>
 		</relationship>
 		<relationship name="output">
-			<destination>{018e26de-ab52-41f3-8404-a7d35b663526}</destination>
+			<destination>{92f7025f-bf05-4f70-afde-cc14deac8f2f}</destination>
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{a3d85286-186c-4372-8308-cf6e2b88f50b}">
@@ -79,6 +79,12 @@
 		</property>
 		<property name="priority">
 			<value>3</value>
+		</property>
+		<property name="minimumDistance">
+			<value>2000</value>
+		</property>
+		<property name="maximumDistance">
+			<value>10000</value>
 		</property>
 	</object>
 	<object class="MarkerTrack" id="{91d891de-6f40-4015-ad30-3e83fda4aff9}" />
@@ -381,8 +387,8 @@
 			<destination>{dabfcd41-64dd-4c2a-be52-ca80cf9756a2}</destination>
 		</relationship>
 		<relationship name="automationPoints">
-			<destination>{b8465659-ac43-46d7-9162-269aa9a9c3c3}</destination>
 			<destination>{a9ffcb9a-a9ce-46f8-abfb-8a5e9de24602}</destination>
+			<destination>{b8465659-ac43-46d7-9162-269aa9a9c3c3}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusFader" id="{8155c5b7-5604-4256-bc0a-89fcc00c1897}" />
@@ -458,20 +464,20 @@
 			<value>-4</value>
 		</property>
 	</object>
-	<object class="AutomationPoint" id="{b8465659-ac43-46d7-9162-269aa9a9c3c3}">
-		<property name="position">
-			<value>7500</value>
-		</property>
-		<property name="value">
-			<value>0</value>
-		</property>
-	</object>
 	<object class="AutomationPoint" id="{a9ffcb9a-a9ce-46f8-abfb-8a5e9de24602}">
 		<property name="position">
 			<value>1486.0426929392447</value>
 		</property>
 		<property name="value">
 			<value>-6</value>
+		</property>
+	</object>
+	<object class="AutomationPoint" id="{b8465659-ac43-46d7-9162-269aa9a9c3c3}">
+		<property name="position">
+			<value>7500</value>
+		</property>
+		<property name="value">
+			<value>0</value>
 		</property>
 	</object>
 	<object class="AutomationCurve" id="{f56ef98d-2010-489e-8365-523394605bde}">

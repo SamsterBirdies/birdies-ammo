@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.02.01.00">
+<objects serializationModel="Studio.02.02.00">
 	<object class="Event" id="{3de163dc-320b-438b-b13a-103bafb283c7}">
 		<property name="name">
 			<value>trail_harpoon</value>
@@ -66,7 +66,7 @@
 			<destination>{2d695921-3452-4220-bbf2-1ecc0d506f9b}</destination>
 		</relationship>
 		<relationship name="output">
-			<destination>{018e26de-ab52-41f3-8404-a7d35b663526}</destination>
+			<destination>{92f7025f-bf05-4f70-afde-cc14deac8f2f}</destination>
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{7dfc8bb2-9d05-4b7e-ab66-fc04d52e35f5}">
@@ -78,6 +78,12 @@
 		</property>
 		<property name="priority">
 			<value>3</value>
+		</property>
+		<property name="minimumDistance">
+			<value>2000</value>
+		</property>
+		<property name="maximumDistance">
+			<value>10000</value>
 		</property>
 	</object>
 	<object class="MarkerTrack" id="{37ca577d-1bb3-43bd-aa0f-b0f42f0b548f}" />
@@ -404,8 +410,8 @@
 			<destination>{cbe09648-c563-4deb-a3f7-20dfc62755bc}</destination>
 		</relationship>
 		<relationship name="automationPoints">
-			<destination>{4ff9bd78-58eb-4716-93fb-09eae332135a}</destination>
 			<destination>{f7ac0e22-9ebc-4d0d-9cc7-6f880c4e8fc6}</destination>
+			<destination>{4ff9bd78-58eb-4716-93fb-09eae332135a}</destination>
 		</relationship>
 	</object>
 	<object class="AutomationCurve" id="{08964ce0-30d8-4fc7-bebd-78ab1262d816}">
@@ -458,20 +464,20 @@
 			<value>800</value>
 		</property>
 	</object>
-	<object class="AutomationPoint" id="{4ff9bd78-58eb-4716-93fb-09eae332135a}">
-		<property name="position">
-			<value>0.26000000000000001</value>
-		</property>
-		<property name="value">
-			<value>22000</value>
-		</property>
-	</object>
 	<object class="AutomationPoint" id="{f7ac0e22-9ebc-4d0d-9cc7-6f880c4e8fc6}">
 		<property name="position">
 			<value>1</value>
 		</property>
 		<property name="value">
 			<value>280</value>
+		</property>
+	</object>
+	<object class="AutomationPoint" id="{4ff9bd78-58eb-4716-93fb-09eae332135a}">
+		<property name="position">
+			<value>0.26000000000000001</value>
+		</property>
+		<property name="value">
+			<value>22000</value>
 		</property>
 	</object>
 	<object class="AutomationPoint" id="{66116a2d-74ab-4437-b07d-0436bf9d4a1c}">

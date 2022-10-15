@@ -245,7 +245,7 @@ function OnWeaponFired(teamId, saveName, weaponId, projectileNodeId, projectileN
 				velocity.x = -100
 			end
 		end
-		local sattProjectileId = dlc2_CreateProjectile("sbSatteliteProjectile", "sattelite", sideId, position, velocity, 15)
+		local sattProjectileId = dlc2_CreateProjectile("sbSatteliteProjectile", "sattelite", teamId%100, position, velocity, 15)
 		data.sattelites[sattProjectileId] = weaponId
 	end
 end

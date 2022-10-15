@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.02.01.00">
+<objects serializationModel="Studio.02.02.00">
 	<object class="EffectPreset" id="{d9cb8ba7-0822-41ad-8f07-ebc1b149a782}">
 		<property name="name">
 			<value>Highpass Simple</value>
@@ -29,9 +29,17 @@
 			<destination>{dabfcd41-64dd-4c2a-be52-ca80cf9756a2}</destination>
 		</relationship>
 		<relationship name="automationPoints">
-			<destination>{3cc550aa-b9a9-43ca-967d-210eb24820d6}</destination>
 			<destination>{8b339042-ec0d-482a-bf31-b8d511f6c602}</destination>
+			<destination>{3cc550aa-b9a9-43ca-967d-210eb24820d6}</destination>
 		</relationship>
+	</object>
+	<object class="AutomationPoint" id="{8b339042-ec0d-482a-bf31-b8d511f6c602}">
+		<property name="position">
+			<value>10000</value>
+		</property>
+		<property name="value">
+			<value>600</value>
+		</property>
 	</object>
 	<object class="AutomationPoint" id="{3cc550aa-b9a9-43ca-967d-210eb24820d6}">
 		<property name="position">
@@ -42,14 +50,6 @@
 		</property>
 		<property name="curveShape">
 			<value>-0.153644145</value>
-		</property>
-	</object>
-	<object class="AutomationPoint" id="{8b339042-ec0d-482a-bf31-b8d511f6c602}">
-		<property name="position">
-			<value>10000</value>
-		</property>
-		<property name="value">
-			<value>600</value>
 		</property>
 	</object>
 </objects>

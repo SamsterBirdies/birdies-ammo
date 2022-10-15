@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.02.01.00">
+<objects serializationModel="Studio.02.02.00">
 	<object class="EffectPreset" id="{ab49b040-4af7-4b95-b584-7c65c218aaf3}">
 		<property name="name">
 			<value>Cloaked Multiband EQ</value>
@@ -64,17 +64,17 @@
 			<destination>{cbe09648-c563-4deb-a3f7-20dfc62755bc}</destination>
 		</relationship>
 		<relationship name="automationPoints">
-			<destination>{c758dc6c-010e-4d44-9f70-e613524fc215}</destination>
-			<destination>{8c6b3ae3-aaef-461b-af10-3a560aad7cec}</destination>
 			<destination>{a3c2cbb4-3a80-4b49-81f8-905035ae8559}</destination>
+			<destination>{8c6b3ae3-aaef-461b-af10-3a560aad7cec}</destination>
+			<destination>{c758dc6c-010e-4d44-9f70-e613524fc215}</destination>
 		</relationship>
 	</object>
-	<object class="AutomationPoint" id="{c758dc6c-010e-4d44-9f70-e613524fc215}">
+	<object class="AutomationPoint" id="{a3c2cbb4-3a80-4b49-81f8-905035ae8559}">
 		<property name="position">
-			<value>1</value>
+			<value>0.14631522323830015</value>
 		</property>
 		<property name="value">
-			<value>266.566437</value>
+			<value>22000</value>
 		</property>
 	</object>
 	<object class="AutomationPoint" id="{8c6b3ae3-aaef-461b-af10-3a560aad7cec}">
@@ -85,12 +85,12 @@
 			<value>22000</value>
 		</property>
 	</object>
-	<object class="AutomationPoint" id="{a3c2cbb4-3a80-4b49-81f8-905035ae8559}">
+	<object class="AutomationPoint" id="{c758dc6c-010e-4d44-9f70-e613524fc215}">
 		<property name="position">
-			<value>0.14631522323830015</value>
+			<value>1</value>
 		</property>
 		<property name="value">
-			<value>22000</value>
+			<value>266.566437</value>
 		</property>
 	</object>
 </objects>
