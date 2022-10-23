@@ -46,19 +46,3 @@ Merge(Device,
 	ammo_sbHarpoon = L"Harpoon",
 	ammo_sbHarpoonTip2 = L"Steals enemy devices. The ammo will be replaced with the stolen device.",
 })
-
-
-Merge(Weapon,
-{
-	ammo_sbMortarAirburst = L"Airburst Mortars",
-	ammo_sbMortarNapalm = L"Napalm Mortars",
-	ammo_sbMortarExtraHeavy = L"Extra Heavy Mortars",
-	ammo_sbMortarSmoke = L"Smoke Mortars",
-	ammo_sbMortarAllInOne = L"All in one Mortars",
-	ammo_sbApache = L"Angry Apache",
-	ammo_sbFirework = L"Firework ball",
-	ammo_sbBattery = L"Extended Beam Charge",
-	ammo_sbOrbitalArtillery = L"Artillery Barrage",
-	ammo_sbRocketNuke = L"Warhead Ammo",
-	ammo_sbRocketCannon = L"Cannon Attachment",
-})
