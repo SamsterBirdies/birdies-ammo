@@ -10,3 +10,4 @@ Root =
 	Pivot = {0,-0.5},
 	PivotOffset = {0,0}
 }
+HitPoints = 90

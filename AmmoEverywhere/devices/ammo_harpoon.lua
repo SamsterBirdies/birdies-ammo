@@ -31,3 +31,4 @@ DeviceSplashDamage = 0
 IncendiaryRadius = 0
 IncendiaryRadiusHeated = 0
 IgnitePlatformOnDestruct = false
+HitPoints = 50

@@ -5,6 +5,7 @@ SelectionWidth = 37.5
 SelectionHeight = 70.75
 SelectionOffset = { 0.0, -71.25 }
 HitPoints = 400
+Mass = 100
 IncendiaryRadius = 0
 IncendiaryRadiusHeated = 0
 StructureSplashDamage = 0

@@ -6,6 +6,7 @@ table.insert(Sprites, ButtonSprite("hud-ammo-sbFirework", "context/HUD-firework"
 DestroyProjectile = "sbFireworkP1"
 StructureSplashDamage = 0
 DeviceSplashDamage = 0
+HitPoints = 50
 dlc2_Ammunition =
 {
 	{ 

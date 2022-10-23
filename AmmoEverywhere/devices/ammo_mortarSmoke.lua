@@ -1,5 +1,6 @@
 dofile("mods/dlc2/devices/ammo_decoy.lua")
 Sprites = {}
+HitPoints = 90
 dofile('ui/uihelper.lua')
 table.insert(Sprites, ButtonSprite("hud-ammo-sbMortarSmoke", "context/HUD-mortarSmoke", nil, nil, nil, nil, path))
 dlc2_Ammunition =

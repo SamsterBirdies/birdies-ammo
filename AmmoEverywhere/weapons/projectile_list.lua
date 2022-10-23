@@ -17,9 +17,11 @@ end
 local sbAirburstS1 = DeepCopy(FindProjectile("shrapnel"))
 if sbAirburstS1 then
 	sbAirburstS1.SaveName = "sbAirburstS1"
-	sbAirburstS1.WeaponDamageBonus = sbAirburstS1.WeaponDamageBonus * 4
-	SetDamageMultiplier("sbAirburstS1", { SaveName = "machinegun", Direct = 3 })
+	sbAirburstS1.WeaponDamageBonus = sbAirburstS1.WeaponDamageBonus * 3
 	table.insert(Projectiles, sbAirburstS1)
+	SetDamageMultiplier("sbAirburstS1", { SaveName = "machinegun", Direct = 1.5 })
+	SetDamageMultiplier("sbAirburstS1", { SaveName = "mortar", Direct = 1 })
+	SetDamageMultiplier("sbAirburstS1", { SaveName = "mortar2", Direct = 1 })
 	MakeFlamingVersion("sbAirburstS1", 1.25,	0.2, flamingSniperTrail, nil, smallArmsFlare)
 end
 local sbAirburstP1 = DeepCopy(FindProjectile("mortar2"))

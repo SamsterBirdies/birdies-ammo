@@ -42,7 +42,7 @@ Root =
 	Pivot = {0,-0.55},
 	PivotOffset = {0,0}
 }
-
+HitPoints = 90
 DestroyProjectile = "sbOrbitalArtilleryMarker"
 IncendiaryRadius = 0
 IncendiaryRadiusHeated = 0

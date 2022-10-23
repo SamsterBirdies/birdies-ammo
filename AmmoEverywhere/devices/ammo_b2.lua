@@ -1,6 +1,7 @@
 dofile("mods/dlc2/devices/ammo_nighthawk.lua")
 Sprites = {}
 ConsumeEffect = "mods/dlc2/effects/ammo_consumption.lua"
+HitPoints = 90
 Root = 
 {
 	Sprite = path .. "/devices/ammo/b2Ammo.png",

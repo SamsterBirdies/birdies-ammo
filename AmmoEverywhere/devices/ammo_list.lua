@@ -374,28 +374,9 @@ if FindDevice("ammo_orbital_sweep") then
 	)
 end
 --rocket ammo
-BuildQueueConcurrent["sbRocket"] = 1
-table.insert(Sprites, ButtonSprite("hud-sbRocketNuke-icon", "HUD/HUD-rocketNuke", nil, ButtonSpriteBottom, nil, nil, path))
-table.insert(Sprites, DetailSprite("hud-detail-sbRocketNuke", "rocketNuke", path))
-table.insert(Devices, IndexOfDevice("ammo_sbFirework") + 2,
-	InheritType(SBBA_AMMO_DEFAULT,nil,
-		{	
-			SaveName = "ammo_sbRocketNuke",
-			dlc2_BuildQueue = "sbRocket",
-			FileName = path .. "/devices/ammo_rocketNuke.lua",
-			Detail = "hud-detail-sbRocketNuke",
-			Icon = "hud-sbRocketNuke-icon",
-			MetalCost = 100,
-			EnergyCost = 3000,
-			Prerequisite = "workshop",
-			Enabled = true,
-			BuildTimeComplete = 45,
-		}
-	)
-)
 table.insert(Sprites, ButtonSprite("hud-sbRocketCannon-icon", "HUD/HUD-rocketCannon", nil, ButtonSpriteBottom, nil, nil, path))
 table.insert(Sprites, DetailSprite("hud-detail-sbRocketCannon", "rocketCannon", path))
-table.insert(Devices, IndexOfDevice("ammo_sbRocketNuke") + 1,
+table.insert(Devices, IndexOfDevice("ammo_sbFirework") + 2,
 	InheritType(SBBA_AMMO_DEFAULT,nil,
 		{	
 			SaveName = "ammo_sbRocketCannon",
@@ -412,7 +393,25 @@ table.insert(Devices, IndexOfDevice("ammo_sbRocketNuke") + 1,
 		}
 	)
 )
---grapeshot ammo
+BuildQueueConcurrent["sbRocket"] = 1
+table.insert(Sprites, ButtonSprite("hud-sbRocketNuke-icon", "HUD/HUD-rocketNuke", nil, ButtonSpriteBottom, nil, nil, path))
+table.insert(Sprites, DetailSprite("hud-detail-sbRocketNuke", "rocketNuke", path))
+table.insert(Devices, IndexOfDevice("ammo_sbRocketCannon") + 1,
+	InheritType(SBBA_AMMO_DEFAULT,nil,
+		{	
+			SaveName = "ammo_sbRocketNuke",
+			dlc2_BuildQueue = "sbRocket",
+			FileName = path .. "/devices/ammo_rocketNuke.lua",
+			Detail = "hud-detail-sbRocketNuke",
+			Icon = "hud-sbRocketNuke-icon",
+			MetalCost = 100,
+			EnergyCost = 3000,
+			Prerequisite = "workshop",
+			Enabled = true,
+			BuildTimeComplete = 45,
+		}
+	)
+)
 --[[
 BuildQueueConcurrent["sbGrapeshot"] = 1
 table.insert(Devices, IndexOfDevice("ammo_sbBattery"),

@@ -463,6 +463,9 @@
 		<property name="maximumDistance">
 			<value>10000</value>
 		</property>
+		<property name="userStereoSeparation">
+			<value>0</value>
+		</property>
 	</object>
 	<object class="MultibandEqEffect" id="{a58286ed-b556-4d3b-a3d3-4372b17040ab}">
 		<property name="filterTypeA">
