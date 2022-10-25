@@ -28,6 +28,9 @@ Merge(Device,
 	ammo_sbBattery = L"Extended Beam Charge",
 	ammo_sbBatteryTip2 = L"Slightly extended beam duration with high voltage capacitors",
 	
+	ammo_sbOrbitalTracer = L"Orbital Tracer",
+	ammo_sbOrbitalTracerTip2 = L"Dummy tracer rounds to assist aiming.",
+	
 	ammo_sbOrbitalArtillery = L"Artillery Barrage",
 	ammo_sbOrbitalArtilleryTip2 = L"Calls an artillery strike on flares location. Protect this ammo from getting destroyed at all costs.",
 	
