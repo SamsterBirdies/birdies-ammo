@@ -767,6 +767,38 @@ if sbArtillery then
 	MakeFlamingVersion("sbArtilleryHail", 1.33,	1, flamingTrail, 100, nil, genericFlamingExpire)
 end
 ------------------------------------END ARTILLERY BARRAGE--------------------------------------
+--orbital tracer
+table.insert(Sprites, 
+{ 
+	Name = "sbOLTracer_projectile",
+	States = 
+	{ 
+		Normal = { Frames = SpriteSheet(path .. "/weapons/orbital/tracer_sheet.png", 4, 1, 0.04), NextState = "Normal"}
+	}
+})
+local sbOLTracer = DeepCopy(FindProjectile("sbOrbitalArtilleryMarker"))
+if sbOLTracer then
+	sbOLTracer.SaveName = "sbOLTracer"
+	sbOLTracer.Effects.Impact = {["default"] = path .. "/effects/impact_ol-tracer.lua"}
+	sbOLTracer.TrailEffect = path .. "/effects/trail_ol-tracer.lua"
+	sbOLTracer.Projectile =
+	{
+		Root =
+		{
+			Name = "Root",
+			Angle = 0,
+			Sprite = "sbOLTracer_projectile",
+			PivotOffset = {0, 0},
+			Scale = 2.0,
+		}
+	}
+	sbOLTracer.ExplodeOnTouch = false
+	sbOLTracer.CollidesWithProjectiles = false
+	sbOLTracer.CollidesWithBeams = false
+	sbOLTracer.ProjectileIncendiary = true
+	sbOLTracer.FieldType = nil
+	table.insert(Projectiles, sbOLTracer)
+end
 --rocket cannon
 local sbRocketCannon = DeepCopy(FindProjectile("cannon"))
 if sbRocketCannon then

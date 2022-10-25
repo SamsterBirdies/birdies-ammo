@@ -353,6 +353,26 @@ table.insert(Devices, IndexOfDevice("ammo_orbital_sweep"),
 	)
 )
 if FindDevice("ammo_orbital_sweep") then
+	BuildQueueConcurrent["sbTracer"] = 1
+	table.insert(Sprites, DetailSprite("hud-detail-sbOrbitalTracer", "orbitalTracer", path))
+	table.insert(Sprites, ButtonSprite("hud-sbOrbitalTracer-icon", "HUD/HUD-orbitalTracer", nil, ButtonSpriteBottom, nil, nil, path))
+	table.insert(Devices, IndexOfDevice("ammo_orbital_sweep"),
+		InheritType(FindDevice("ammo_orbital_sweep"),nil,
+			{	
+				SaveName = "ammo_sbOrbitalTracer",
+				dlc2_BuildQueue = "sbTracer",
+				FileName = path .. "/devices/ammo_orbitalTracer.lua",
+				Detail = "hud-detail-sbOrbitalTracer",
+				Icon = "hud-sbOrbitalTracer-icon",
+				MetalCost = 30,
+				EnergyCost = 800,
+				Prerequisite = "upgrade",
+				Enabled = true,
+				BuildTimeComplete = 12,
+				Upgrades = {},
+			}
+		)
+	)
 	table.insert(Sprites, DetailSprite("hud-detail-sbOrbitalArtillery", "orbitalArtillery", path))
 	table.insert(Sprites, ButtonSprite("hud-sbOrbitalArtillery-icon", "HUD/HUD-orbitalArtillery", nil, ButtonSpriteBottom, nil, nil, path))
 	table.insert(Devices, IndexOfDevice("ammo_orbital_focus") + 1,
@@ -384,11 +404,11 @@ table.insert(Devices, IndexOfDevice("ammo_sbFirework") + 2,
 			FileName = path .. "/devices/ammo_rocketCannon.lua",
 			Detail = "hud-detail-sbRocketCannon",
 			Icon = "hud-sbRocketCannon-icon",
-			MetalCost = 500,
+			MetalCost = 400,
 			EnergyCost = 3000,
 			Prerequisite = "munitions",
 			Enabled = true,
-			BuildTimeComplete = 60,
+			BuildTimeComplete = 50,
 			PopulationCap = 1,
 		}
 	)

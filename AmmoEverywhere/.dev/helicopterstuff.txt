@@ -1,0 +1,6 @@
+Angry Apache:
+Fires 30mm chaingun (5 rounds a second).
+Fires barrages of hydra rockets.
+Fires a hellfire missile.
+
+Will attempt to return back to the runway once its ammo depletes (controllable by fuse timer. Fuse spawns firing heli)

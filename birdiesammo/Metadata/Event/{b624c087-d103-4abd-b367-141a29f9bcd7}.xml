@@ -326,7 +326,10 @@
 			<value>4.30000019</value>
 		</property>
 		<property name="depth">
-			<value>59</value>
+			<value>56</value>
+		</property>
+		<property name="mix">
+			<value>79.5</value>
 		</property>
 	</object>
 	<object class="AutomationPoint" id="{9943b8bb-0089-434f-9d65-7d4c1cbbc85f}">

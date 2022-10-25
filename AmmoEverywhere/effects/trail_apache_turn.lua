@@ -10,7 +10,7 @@ Effects =
 		SparkCount = 34,
 		BurstPeriod = 0.03,
 		SparksPerBurst = 1,
-		LocalPosition = { x = -25, y = 60, z = 10 },	-- how to place the origin relative to effect position and direction (0, 0) 
+		LocalPosition = { x = 0, y = 60, z = 10 },	-- how to place the origin relative to effect position and direction (0, 0) 
 		Sprite = "effects/media/Steam.tga",
 
 		Gravity = 0,						-- gravity applied to particle (981 is earth equivalent)

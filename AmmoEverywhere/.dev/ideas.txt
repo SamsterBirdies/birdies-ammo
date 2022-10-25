@@ -1,0 +1,28 @@
+--vanilla-ish--	
+
+runway:
+	Spirit of Forts:
+		B-2 bomber. Carpet bombs a wide area. Factory.
+		
+	Bomb Glider:
+		Cheap disposable glider that either drops its bomb, or rams the bomb into the fort directly. Munitions.
+		
+
+emp rocket:
+	mega emp:
+		extended duration of emp time and radius and projectile HP.
+harpoon:
+	harpoon ammo:
+		steals enemy devices
+		
+deckgun:
+	grapeshot ammo:
+		from workshop.
+
+--birdies guns--
+bow:
+	bundle of arrows:
+		shotbow!!!
+vertical rocket battery:
+	EMP rockets:
+		sends armored emp rockets.

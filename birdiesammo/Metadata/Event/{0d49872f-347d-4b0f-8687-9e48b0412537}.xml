@@ -394,9 +394,6 @@
 		</relationship>
 	</object>
 	<object class="MixerSend" id="{4ee95357-a3d7-44a1-a3f8-565eae9caafe}">
-		<property name="bypass">
-			<value>true</value>
-		</property>
 		<property name="inputFormat">
 			<value>2</value>
 		</property>
@@ -413,7 +410,7 @@
 			<value>9</value>
 		</property>
 		<property name="frequencyA">
-			<value>118.816147</value>
+			<value>165.518555</value>
 		</property>
 		<property name="frequencyB">
 			<value>943.399658</value>
@@ -425,7 +422,7 @@
 			<value>1.20000005</value>
 		</property>
 		<property name="gainA">
-			<value>18.1034489</value>
+			<value>17.0689659</value>
 		</property>
 		<property name="gainB">
 			<value>5.17241478</value>

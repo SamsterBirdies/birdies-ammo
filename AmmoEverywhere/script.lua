@@ -198,10 +198,10 @@ function OnDeviceCreated(teamId, deviceId, saveName, nodeA, nodeB, t, upgradedId
 	--save runway ammo locations for apache auto-placement 
 	if saveName == "ammo_sbApache" or saveName == "ammo_thunderbolt" or saveName == "ammo_nighthawk" or saveName == "ammo_sbApacheReturned" then
 		table.insert(data.AmmoLocations[teamId],1, {nodeA, nodeB, t})
-		if #data.AmmoLocations[teamId] > 32 then
+		if #data.AmmoLocations[teamId] > 98 then
 			--Log("#data.AmmoLocations[" .. tostring(teamId) .. "] is over 32. Removing excess entries.")
-			table.remove(data.AmmoLocations[teamId],30)
-			table.remove(data.AmmoLocations[teamId],30)
+			table.remove(data.AmmoLocations[teamId],95)
+			table.remove(data.AmmoLocations[teamId],95)
 			--Log("#data.AmmoLocations[" .. tostring(teamId) .. "] is now " .. tostring(#data.AmmoLocations[teamId]))
 		end
 	--add harpoon ammmo device id to table
