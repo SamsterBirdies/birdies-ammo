@@ -368,7 +368,7 @@ if FindDevice("ammo_orbital_sweep") then
 				EnergyCost = 800,
 				Prerequisite = "upgrade",
 				Enabled = true,
-				BuildTimeComplete = 12,
+				BuildTimeComplete = 10,
 				Upgrades = {},
 			}
 		)
