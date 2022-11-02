@@ -1,7 +1,7 @@
 AmmoEverywhere/audio/
 AmmoEverywhere/itemversion.lua
 AmmoEverywhere/publishedfileid.lua
-birdiesammo/Build/audio/
-birdiesammo/.user/
-birdiesammo/.unsaved/
-birdiesammo/.cache/
+AmmoEverywhere/.dev/birdiesammo2.2/Build/
+AmmoEverywhere/.dev/birdiesammo2.2/.user/
+AmmoEverywhere/.dev/birdiesammo2.2/.unsaved/
+AmmoEverywhere/.dev/birdiesammo2.2/.cache/
