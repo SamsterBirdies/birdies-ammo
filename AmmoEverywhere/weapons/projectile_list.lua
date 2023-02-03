@@ -12,6 +12,65 @@ if sbMegaEMP then
 	sbMegaEMP.ProjectileSplashDamage = sbMegaEMP.ProjectileSplashDamage * 3
 	table.insert(Projectiles, sbMegaEMP)
 end
+----------------------START FMJ-------------------------------------------
+local sbFMJmg = DeepCopy(FindProjectile("machinegun"))
+if sbFMJmg then
+	sbFMJmg.SaveName = "sbFMJmachinegun"
+	sbFMJmg.PenetrationDamage = 200
+	sbFMJmg.ProjectileDamage = 8
+	sbFMJmg.DeviceDamageBonus = 4
+	sbFMJmg.WeaponDamageBonus = 0
+	sbFMJmg.ProjectileMass = 0.5
+	sbFMJmg.MomentumThreshold = { ["bracing"] = { Reflect = 1, Penetrate = 100 },}
+	table.insert(Projectiles, sbFMJmg)
+	SetDamageMultiplier("sbFMJmachinegun", { SaveName = "bracing", Direct = 1.5 })
+end
+local sbmgfix = DeepCopy(FindProjectile("machinegun"))
+if sbmgfix then
+	sbmgfix.SaveName = "sbmachinegunfix"
+	sbmgfix.Effects.Age = {t0 = { Effect = nil, Projectile = { Count = 1, Type = "machinegun", StdDev = 0 }, Offset = 0, Terminate = true, Splash = false}}
+	table.insert(Projectiles, sbmgfix)
+end
+local sbFMJsniper = DeepCopy(FindProjectile("sniper"))
+if sbFMJsniper then
+	sbFMJsniper.SaveName = "sbFMJsniper"
+	sbFMJsniper.PenetrationDamage = 301
+	sbFMJsniper.ProjectileDamage = 25
+	sbFMJsniper.DeviceDamageBonus = 5
+	sbFMJsniper.WeaponDamageBonus = 40
+	sbFMJsniper.ProjectileMass = 1
+	sbFMJsniper.MomentumThreshold = { ["bracing"] = { Reflect = 1, Penetrate = 100 },}
+	table.insert(Projectiles, sbFMJsniper)
+	SetDamageMultiplier("sbFMJsniper", { SaveName = "minigun", Direct = 0.685 })
+	SetDamageMultiplier("sbFMJsniper", { SaveName = "sniper", Direct = 0.685 })
+	SetDamageMultiplier("sbFMJsniper", { SaveName = "machinegun", Direct = 2 })
+	SetDamageMultiplier("sbFMJsniper", { SaveName = "bracing", Direct = 0.9 })
+end
+local sbFMJminigun = DeepCopy(FindProjectile("minigun"))
+if sbFMJminigun then
+	sbFMJminigun.SaveName = "sbFMJminigun"
+	sbFMJminigun.PenetrationDamage = 200
+	sbFMJminigun.ProjectileDamage = 15
+	sbFMJminigun.WeaponDamageBonus = -3
+	sbFMJminigun.ProjectileMass = 0.5
+	sbFMJminigun.MomentumThreshold = { ["bracing"] = { Reflect = 1, Penetrate = 100 },}
+	sbFMJminigun.DamageMultiplier = {}
+	table.insert(Projectiles, sbFMJminigun)
+	SetDamageMultiplier("sbFMJminigun", { SaveName = "bracing", Direct = 1.2 })
+end
+local sbFMJshotgun = DeepCopy(FindProjectile("shotgun"))
+if sbFMJshotgun then
+	sbFMJshotgun.SaveName = "sbFMJshotgun"
+	sbFMJshotgun.PenetrationDamage = 200
+	sbFMJshotgun.ProjectileDamage = 30
+	sbFMJshotgun.DeviceDamageBonus = 5
+	sbFMJshotgun.WeaponDamageBonus = -5
+	sbFMJshotgun.ProjectileMass = 0.5
+	sbFMJshotgun.DamageMultiplier = {}
+	sbFMJshotgun.MomentumThreshold = { ["bracing"] = { Reflect = 1, Penetrate = 100 },}
+	table.insert(Projectiles, sbFMJshotgun)
+end
+----------------------END FMJ---------------------------------------------
 ---------------------START MORTARS----------------------------------------
 --start airburst mortar
 local sbAirburstS1 = DeepCopy(FindProjectile("shrapnel"))

@@ -1,28 +1,10 @@
---vanilla-ish--	
+--vanilla-ish--
 
-runway:
-	Spirit of Forts:
-		B-2 bomber. Carpet bombs a wide area. Factory.
-		
-	Bomb Glider:
-		Cheap disposable glider that either drops its bomb, or rams the bomb into the fort directly. Munitions.
-		
-
-emp rocket:
-	mega emp:
-		extended duration of emp time and radius and projectile HP.
-harpoon:
-	harpoon ammo:
-		steals enemy devices
-		
-deckgun:
-	grapeshot ammo:
-		from workshop.
-
---birdies guns--
-bow:
-	bundle of arrows:
-		shotbow!!!
-vertical rocket battery:
-	EMP rockets:
-		sends armored emp rockets.
+FMJ rounds:
+	Can penetrate bracing. Does less damage to weapons. Unlocked with upgrade center.
+	Ammo for machinegun, sniper, minigun, shotgun.
+	Does not consume.
+Grapeshot:
+	Fires like a shotgun. perhaps like 75dmg per projectile. No splash. Unlocked with upgrade center. No change in reload rate.
+	Ammo for cannon and deckguns.
+	Does not consume.

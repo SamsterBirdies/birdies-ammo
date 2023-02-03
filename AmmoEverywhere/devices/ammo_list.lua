@@ -17,10 +17,30 @@ local SBBA_AMMO_DEFAULT = --default device values. no longer global
 	BuildOnGroundOnly = false,
 	SelectEffect = "ui/hud/devices/ui_devices",
 }
-
---mortars
 BuildQueueConcurrent["sbInf"] = 100000
 BuildQueueConcurrent["sbMortarsInfinite"] = 1000
+
+--fmj
+table.insert(Sprites, DetailSprite("hud-detail-sbFMJ", "fmj", path))
+table.insert(Sprites, ButtonSprite("hud-sbFMJ-icon", "HUD/HUD-fmj", nil, ButtonSpriteBottom, nil, nil, path))
+table.insert(Devices, IndexOfDevice("ammo_decoy"),
+	InheritType(SBBA_AMMO_DEFAULT,nil,
+		{	
+			SaveName = "ammo_sbFMJ",
+			dlc2_BuildQueue = "sbInf",
+			FileName = path .. "/devices/ammo_fmj.lua",
+			Detail = "hud-detail-sbFMJ",
+			Icon = "hud-sbFMJ-icon",
+			MetalCost = 200,
+			EnergyCost = 2000,
+			Prerequisite = "upgrade",
+			Enabled = true,
+			BuildTimeComplete = 26,
+			PopulationCap = 1,
+		}
+	)
+)
+--mortars
 
 table.insert(Sprites, DetailSprite("hud-detail-sbMortarNapalm", "mortarNapalm", path))
 table.insert(Sprites, ButtonSprite("hud-sbMortarNapalm-icon", "HUD/HUD-mortarNapalm", nil, ButtonSpriteBottom, nil, nil, path))

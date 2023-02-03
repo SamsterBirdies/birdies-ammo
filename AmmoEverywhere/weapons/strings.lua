@@ -48,4 +48,12 @@ Merge(Device,
 	
 	ammo_sbHarpoon = L"Harpoon",
 	ammo_sbHarpoonTip2 = L"Steals enemy devices. The ammo will be replaced with the stolen device.",
+	
+	ammo_sbFMJ = L"Full Metal Jackets",
+	ammo_sbFMJTip2 = L"Can penetrate bracing. Higher damage against structure and devices. Lower damage against weapons.",
+})
+Merge(Weapon,
+{
+	--context buttons
+	ammo_sbStandard = L"Standard Rounds",
 })
