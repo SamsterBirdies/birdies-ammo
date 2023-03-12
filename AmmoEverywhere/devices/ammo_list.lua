@@ -452,6 +452,23 @@ table.insert(Devices, IndexOfDevice("ammo_sbRocketCannon") + 1,
 		}
 	)
 )
+--ultimates
+table.insert(Devices,
+	InheritType(SBBA_AMMO_DEFAULT,nil,
+		{	
+			SaveName = "ult_sbmg",
+			--PopulationCap = 1,
+			FileName = path .. "/devices/ultimate_machinegun.lua",
+			Detail = "hud-detail-sbRocketNuke",
+			Icon = "hud-sbRocketNuke-icon",
+			MetalCost = 100,
+			EnergyCost = 2000,
+			Enabled = true,
+			BuildTimeComplete = 40,
+		}
+	)
+)
+
 --[[
 BuildQueueConcurrent["sbGrapeshot"] = 1
 table.insert(Devices, IndexOfDevice("ammo_sbBattery"),

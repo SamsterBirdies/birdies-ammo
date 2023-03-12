@@ -925,6 +925,21 @@ SetDamageMultiplier("ol_beam_sweep", { SaveName = "sbSatteliteProjectile", AntiA
 SetDamageMultiplier("ol_beam_focus", { SaveName = "sbSatteliteProjectile", AntiAir = 0 })
 SetDamageMultiplier("firebeam", { SaveName = "sbSatteliteProjectile", AntiAir = 0 })
 SetDamageMultiplier("laser", { SaveName = "sbSatteliteProjectile", AntiAir = 0 })
+-----------------------------ultimates---------------------------------------------------
+local sbultmg1 = DeepCopy(FindProjectile("machinegun"))
+if sbultmg1 then
+	sbultmg1.SaveName = "sbult_mg1"
+	sbultmg1.MaxAge = 0.04
+	sbultmg1.MinAge = nil
+	table.insert(Projectiles, sbultmg1)
+end
+local sbultmg2 = DeepCopy(FindProjectile("sbult_mg1"))
+if sbultmg2 then
+	sbultmg2.SaveName = "sbult_mg2"
+	sbultmg2.MaxAge = 60
+	sbultmg2.ExpiresOnFreeFall = false
+	table.insert(Projectiles, sbultmg2)
+end
 -----------------------------------BIRDIES GUNS---------------------------------------
 --arrow bundle
 function sbProjectileBG()

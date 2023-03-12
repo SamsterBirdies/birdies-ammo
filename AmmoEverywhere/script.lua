@@ -147,6 +147,21 @@ function sbHarpoonSatellite(projectileTeamId)
 		end
 	end
 end
+------------------------------Ultimates--------------------------------------
+--mg
+function Ultimate_MG(teamId, direction, posX)
+	--rains hail of bullets in fired direction
+	local extents = GetWorldExtents()
+	--effect
+	for i = 0, 7 do
+		ScheduleCall(i * 0.24, SpawnEffect, "effects/fire_machinegun.lua", Vec3(posX + (2500 * direction * i), extents["MinY"] - 5000))
+	end
+	--bullet hail
+	for i = 4, 200 do
+		ScheduleCall(i * 0.04, dlc2_CreateProjectile, "sbult_mg2", "machinegun", teamId, Vec3(posX + (140 * direction * i), extents["MinY"] - 100), Vec3(0,4000), 20)
+		ScheduleCall(i * 0.04, dlc2_CreateProjectile, "sbult_mg2", "machinegun", teamId, Vec3(posX + (140 * direction * i) + (70 * direction), extents["MinY"] - 100), Vec3(0,4000), 20)
+	end
+end
 -------------------EVENTS--------------------
 
 function Load(gameStart)
@@ -247,6 +262,14 @@ function OnWeaponFired(teamId, saveName, weaponId, projectileNodeId, projectileN
 		end
 		local sattProjectileId = dlc2_CreateProjectile("sbSatteliteProjectile", "sattelite", teamId%100, position, velocity, 15)
 		data.sattelites[sattProjectileId] = weaponId
+	end
+	--ultimate mg
+	if saveName == "machinegun" and GetNodeProjectileSaveName(projectileNodeId) == "sbult_mg1" then
+		local direction = 1
+		if NodeVelocity(projectileNodeId).x < 0 then
+			direction = -1
+		end
+		Ultimate_MG(teamId, direction, GetDevicePosition(weaponId).x)
 	end
 end
 

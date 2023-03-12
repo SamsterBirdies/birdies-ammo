@@ -1,10 +1,17 @@
 --vanilla-ish--
 
-FMJ rounds:
-	Can penetrate bracing. Does less damage to weapons. Unlocked with upgrade center.
-	Ammo for machinegun, sniper, minigun, shotgun.
-	Does not consume.
 Grapeshot:
 	Fires like a shotgun. perhaps like 75dmg per projectile. No splash. Unlocked with upgrade center. No change in reload rate.
 	Ammo for cannon and deckguns.
 	Does not consume.
+Ultimate abilities for weak weapons:
+	Population cap of 1.
+	
+	Machinegun:
+		Lead Hail (rains bullets from the sky across the map)
+	Incendiary mortar:
+		Hellfire bombardment (fires an incendiary orbital laser marker that rains down incendiary mortars)
+	Flak:
+		Grand Finale (flak bursts into more flak with explosive incendiary rounds)
+	EMP:
+		Wunderwaffe (emped devices will emp a nearby device, can chain.)
