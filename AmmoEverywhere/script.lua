@@ -285,6 +285,16 @@ function OnDeviceCompleted(teamId, deviceId, saveName)
 	if saveName == "ammo_sbApache" or saveName == "ammo_sbApacheReturned" then
 		UpgradeDevice(deviceId, "ammo_sbApacheFireable")
 	end
+	--guns that automatically have first ammo option selected
+	if saveName == "machinegun" then
+		SetWeaponSelectedAmmo(deviceId, "sbmachinegunfix")
+	elseif saveName == "sniper" then
+		SetWeaponSelectedAmmo(deviceId, "sniper")
+	elseif saveName == "minigun" then
+		SetWeaponSelectedAmmo(deviceId, "minigun")
+	elseif saveName == "shotgun" then
+		SetWeaponSelectedAmmo(deviceId, "shotgun")
+	end
 end
 
 function OnDeviceDestroyed(teamId, deviceId, saveName, nodeA, nodeB, t)

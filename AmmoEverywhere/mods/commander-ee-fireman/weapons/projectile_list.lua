@@ -1,7 +1,7 @@
 local napalm = FindProjectile("sbba_NapalmMortar")
 if napalm then
-	napalm.IncendiaryRadius = napalm.IncendiaryRadius * 1.5
-	napalm.IncendiaryRadiusHeated = napalm.IncendiaryRadiusHeated * 2
+	napalm.IncendiaryRadius = napalm.IncendiaryRadius * 1.35
+	napalm.IncendiaryRadiusHeated = napalm.IncendiaryRadiusHeated * 1.7
 end
 
 local hellfire = FindProjectile("sbApacheHellfire")

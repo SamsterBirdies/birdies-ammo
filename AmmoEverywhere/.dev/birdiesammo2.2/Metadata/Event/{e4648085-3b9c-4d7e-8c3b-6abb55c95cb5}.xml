@@ -270,7 +270,6 @@
 		<relationship name="effects">
 			<destination>{effb042d-54a2-4b78-b086-cc1b8ad05d8f}</destination>
 			<destination>{d2c9a1f3-9b42-4bef-a2c2-b2270098b52b}</destination>
-			<destination>{45afe629-113f-4252-bcc5-fb95936d68ab}</destination>
 			<destination>{2762c0d6-7533-4606-89a0-e19c96e8f97f}</destination>
 		</relationship>
 	</object>
@@ -385,20 +384,6 @@
 			<value>6.20689631</value>
 		</property>
 	</object>
-	<object class="ChorusEffect" id="{45afe629-113f-4252-bcc5-fb95936d68ab}">
-		<property name="rate">
-			<value>0.0949999988</value>
-		</property>
-		<property name="depth">
-			<value>37.5</value>
-		</property>
-		<property name="mix">
-			<value>60.5</value>
-		</property>
-		<relationship name="modulators">
-			<destination>{1cd05e86-97a3-4597-b4f9-1dd4b5ef8ff4}</destination>
-		</relationship>
-	</object>
 	<object class="FlangerEffect" id="{2762c0d6-7533-4606-89a0-e19c96e8f97f}">
 		<property name="rate">
 			<value>0.0899999961</value>
@@ -475,14 +460,6 @@
 		</property>
 		<property name="value">
 			<value>0</value>
-		</property>
-	</object>
-	<object class="RandomizerModulator" id="{1cd05e86-97a3-4597-b4f9-1dd4b5ef8ff4}">
-		<property name="nameOfPropertyBeingModulated">
-			<value>rate</value>
-		</property>
-		<property name="amount">
-			<value>17</value>
 		</property>
 	</object>
 	<object class="RandomizerModulator" id="{de070550-ae72-4e0b-9cd0-b1e2cf03fe5c}">

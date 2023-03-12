@@ -28,7 +28,7 @@ end
 local sbmgfix = DeepCopy(FindProjectile("machinegun"))
 if sbmgfix then
 	sbmgfix.SaveName = "sbmachinegunfix"
-	sbmgfix.Effects.Age = {t0 = { Effect = nil, Projectile = { Count = 1, Type = "machinegun", StdDev = 0 }, Offset = 0, Terminate = true, Splash = false}}
+	sbmgfix.Effects.Age = {t0 = { Effect = nil, Projectile = { Count = 1, Type = "machinegun", StdDev = 0 }, Offset = 100, Terminate = true, Splash = false}}
 	table.insert(Projectiles, sbmgfix)
 end
 local sbFMJsniper = DeepCopy(FindProjectile("sniper"))

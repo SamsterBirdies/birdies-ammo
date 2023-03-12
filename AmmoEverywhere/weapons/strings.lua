@@ -51,6 +51,11 @@ Merge(Device,
 	
 	ammo_sbFMJ = L"Full Metal Jackets",
 	ammo_sbFMJTip2 = L"Can penetrate bracing. Higher damage against structure and devices. Lower damage against weapons.",
+	
+	ult_sbmg = L"Hail of Lead",
+	ult_sbmgTip2 = L"Rains down bullets across the whole map.",
+	ult_sbmgTip3 = L"Population Cap: 1",
+	
 })
 Merge(Weapon,
 {

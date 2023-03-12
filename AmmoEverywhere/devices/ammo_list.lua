@@ -453,14 +453,16 @@ table.insert(Devices, IndexOfDevice("ammo_sbRocketCannon") + 1,
 	)
 )
 --ultimates
-table.insert(Devices,
+table.insert(Sprites, ButtonSprite("hud-sbLeadHail-icon", "HUD/HUD-leadHail", nil, ButtonSpriteBottom, nil, nil, path))
+table.insert(Sprites, DetailSprite("hud-detail-sbLeadHail", "leadHail", path))
+table.insert(Devices,1,
 	InheritType(SBBA_AMMO_DEFAULT,nil,
 		{	
 			SaveName = "ult_sbmg",
-			--PopulationCap = 1,
+			PopulationCap = 1,
 			FileName = path .. "/devices/ultimate_machinegun.lua",
-			Detail = "hud-detail-sbRocketNuke",
-			Icon = "hud-sbRocketNuke-icon",
+			Detail = "hud-detail-sbLeadHail",
+			Icon = "hud-sbLeadHail-icon",
 			MetalCost = 100,
 			EnergyCost = 2000,
 			Enabled = true,
