@@ -55,7 +55,6 @@ Merge(Device,
 	ult_sbmg = L"Hail of Lead",
 	ult_sbmgTip2 = L"Rains down bullets across the whole map.",
 	ult_sbmgTip3 = L"Population Cap: 1",
-	
 })
 Merge(Weapon,
 {
