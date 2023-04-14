@@ -1,9 +1,12 @@
 --vanilla-ish--
 
-Grapeshot:
-	Fires like a shotgun. perhaps like 75dmg per projectile. No splash. Unlocked with upgrade center. No change in reload rate.
-	Ammo for cannon and deckguns.
-	Does not consume.
+Biplane:
+	A WWI biplane that drops flechettes. Does more damage with height (flechette velocity).
+	After dropping flechettes, the pilot parachutes and lets the plane run into something. (same action when shot down. same action when about to run into a wall. same action with firebeam, except flaming plane).
+	Can shoot down the parachuting pilot.
+	If the pilot happens to land on an enemy base, then the pilot will be captured. (Unlock a free pilot weapon (m1911) for the player of that fort.)
+	Unlocked with workshop.
+	Ammo for runway.
 Ultimate abilities for weak weapons:
 	Population cap of 1.
 	
@@ -15,3 +18,7 @@ Ultimate abilities for weak weapons:
 		Grand Finale (flak bursts into more flak with explosive incendiary rounds)
 	EMP:
 		Wunderwaffe (emped devices will emp a nearby device, can chain.)
+Grapeshot:
+	Fires like a shotgun. perhaps like 75dmg per projectile. No splash. Unlocked with upgrade center. No change in reload rate.
+	Ammo for cannon and deckguns.
+	Does not consume.

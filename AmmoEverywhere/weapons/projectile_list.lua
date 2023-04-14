@@ -588,7 +588,7 @@ if sbB2 then
 		for i = 0, bombPeriod*bombCount, bombPeriod do
 			sbB2P2.Effects.Age['t' .. tostring(i)] = { Effect = "mods/dlc2/effects/bomb_release.lua", Projectile = { Count = 1, Type = "sbB2bomb", StdDev = 0, Speed = 1000}, Terminate = false, Splash = false,}
 		end
-		sbB2P2.Effects.Age['t' .. tostring(40*(bombCount + 1))] = {Effect = path .. "/effects/b2_bank.lua", Terminate = true, Splash = false,}
+		sbB2P2.Effects.Age['t' .. tostring(bombPeriod*(bombCount + 1))] = {Effect = path .. "/effects/b2_bank.lua", Terminate = true, Splash = false,}
 	end
 	--firebeamed version
 	local sbFlamingB2 = DeepCopy(FindProjectile("flamingnighthawk"))
@@ -611,6 +611,80 @@ if sbB2 then
 	table.insert(Projectiles, sbB2)
 end
 -----------------------END B2 SPIRIT------------------------------------
+---------------------START BIPLANE FLECHETTE----------------------------
+local sbFlechetteP1 = DeepCopy(FindProjectile("machinegun"))
+if sbFlechetteP1 then
+	sbFlechetteP1.SaveName = "sbFlechetteP1"
+	sbFlechetteP1.ExpiresOnFreeFall = false
+	sbFlechetteP1.Effects = { Age = {t1 = { Effect = nil, Projectile = { Count = 4, Type = "sbFlechetteP2", StdDev = 0.2 }, Offset = 0, Terminate = true, Splash = false} }}
+	local sbFlechetteP2 = DeepCopy(FindProjectile("machinegun"))
+	sbFlechetteP2.SaveName = "sbFlechetteP2"
+	sbFlechetteP2.MinAge = nil
+	sbFlechetteP2.MaxAge = 60
+	sbFlechetteP2.ProjectileDrag = 0
+	sbFlechetteP2.WeaponDamageBonus = 0
+	sbFlechetteP2.ProjectileSpriteMipMap = true
+	sbFlechetteP2.ProjectileSprite = path .. "/weapons/biplane/flechette.png"
+	sbFlechetteP2.ExpiresOnFreeFall = false
+	sbFlechetteP2.ProjectileDamage = 1
+	sbFlechetteP2.AntiAirHitpoints = 1
+	sbFlechetteP2.AntiAirDamage = 6
+	table.insert(Projectiles, sbFlechetteP2)
+	table.insert(Projectiles, sbFlechetteP1)
+end
+	
+local sbBiP1 = DeepCopy(FindProjectile("nighthawk"))
+if sbBiP1 then
+	--first phase (before dropping flechettes)
+	sbBiP1.SaveName = "sbBiplaneP1"
+	sbBiP1.dlc2_Bombs = nil
+	sbBiP1.Projectile =
+	{
+		Root =
+		{
+			Name = "Root",
+			Angle = -90,
+			Sprite = path .. "/weapons/biplane/base.png",
+			PivotOffset = {0, 0},
+			Scale = 1.6,
+		}
+	}
+	--effects
+	sbBiP1.Effects.Impact["firebeam"] = { Effect = nil, Projectile = { Count = 1, Type = "flamingsbBi", StdDev = 0, }, Terminate = true, Splash = false,}
+	sbBiP1.Effects.Age = {t100 = { Effect = nil, Projectile = { Count = 1, Type = "sbBiplaneP2", StdDev = 0.0 }, Offset = 0, Terminate = true, Splash = false}}
+	--second phase (dropping flechettes)
+	local sbBiP2 = DeepCopy(sbBiP1)
+	sbBiP2.SaveName = "sbBiplaneP2"
+	--age
+	local bombCount = 20
+	local bombPeriod = 40
+	sbBiP2.Effects.Age = {}
+	for i = 1, bombPeriod * bombCount, bombPeriod do
+		sbBiP2.Effects.Age["t" .. tostring(i)] = { Effect = "mods/dlc2/effects/bomb_release.lua", Projectile = { Count = 1, Type = "sbFlechetteP1", StdDev = 0, Speed = 1000 }, Offset = 0, Terminate = false, Splash = false}
+	end
+	sbBiP2.Effects.Age['t' .. tostring(bombPeriod*(bombCount + 1))] = {Effect = path .. "/effects/b2_bank.lua", Terminate = true, Splash = false,}
+	--firebeamed version
+	local sbFlamingBi = DeepCopy(FindProjectile("flamingnighthawk"))
+	if sbFlamingBi then
+		sbFlamingBi.SaveName = "flamingsbBi"
+		sbFlamingBi.Projectile =
+		{
+			Root =
+			{
+				Name = "Root",
+				Angle = -90,
+				Sprite = path .. "/weapons/biplane/base.png",
+				PivotOffset = {0, 0},
+				Scale = 1.6,
+			}
+		}
+	end
+	--insert
+	table.insert(Projectiles, sbFlamingBi)
+	table.insert(Projectiles, sbBiP2)
+	table.insert(Projectiles, sbBiP1)
+end
+--------------------END BIPLANE FLECHETTE-------------------------------
 ---------------------------START FIREWORK-------------------------------
 if FindProjectile("decoy") then --only if high seas is enabled
 	local sbFireworkP1 = DeepCopy(FindProjectile("mortar2"))

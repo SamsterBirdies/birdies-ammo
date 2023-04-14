@@ -351,6 +351,25 @@ if FindDevice("ammo_nighthawk") then
 			}
 		)
 	)
+	--biplane
+	--table.insert(Sprites, DetailSprite("hud-detail-sbBombGlider", "bombGlider", path))
+	--table.insert(Sprites, ButtonSprite("hud-sbBombGlider-icon", "HUD/HUD-bombGlider", nil, ButtonSpriteBottom, nil, nil, path))
+	table.insert(Devices, IndexOfDevice("ammo_sbBombGlider"),
+		InheritType(FindDevice("ammo_nighthawk"),nil,
+			{	
+				SaveName = "ammo_sbBiplane",
+				FileName = path .. "/devices/ammo_biplane.lua",
+				dlc2_BuildQueue = "dlc2_runway",
+				Detail = "hud-detail-sbBombGlider",
+				Icon = "hud-sbBombGlider-icon",
+				MetalCost = 75,
+				EnergyCost = 500,
+				Prerequisite = "munitions",
+				Enabled = true,
+				BuildTimeComplete = 20,
+			}
+		)
+	)
 end
 --lasers
 BuildQueueConcurrent["sbBattery"] = 1
