@@ -662,7 +662,7 @@ if sbBiP1 then
 	for i = 1, bombPeriod * bombCount, bombPeriod do
 		sbBiP2.Effects.Age["t" .. tostring(i)] = { Effect = "mods/dlc2/effects/bomb_release.lua", Projectile = { Count = 1, Type = "sbFlechetteP1", StdDev = 0, Speed = 1000 }, Offset = 0, Terminate = false, Splash = false}
 	end
-	sbBiP2.Effects.Age['t' .. tostring(bombPeriod*(bombCount + 1))] = {Effect = path .. "/effects/b2_bank.lua", Terminate = true, Splash = false,}
+	sbBiP2.Effects.Age['t' .. tostring(bombPeriod*(bombCount + 1))] = {Effect = path .. "/effects/biplane_bank.lua", Terminate = true, Splash = false,}
 	--firebeamed version
 	local sbFlamingBi = DeepCopy(FindProjectile("flamingnighthawk"))
 	if sbFlamingBi then
