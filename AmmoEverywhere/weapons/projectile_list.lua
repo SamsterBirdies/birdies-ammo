@@ -612,6 +612,7 @@ if sbB2 then
 end
 -----------------------END B2 SPIRIT------------------------------------
 ---------------------START BIPLANE FLECHETTE----------------------------
+--plane drops flechettes
 local sbFlechetteP1 = DeepCopy(FindProjectile("machinegun"))
 if sbFlechetteP1 then
 	sbFlechetteP1.SaveName = "sbFlechetteP1"
@@ -632,11 +633,64 @@ if sbFlechetteP1 then
 	table.insert(Projectiles, sbFlechetteP2)
 	table.insert(Projectiles, sbFlechetteP1)
 end
+--just a cool visual effect. Pilot can be shot down.
+local sbPilot = DeepCopy(FindProjectile("mortar2"))
+if sbPilot then
+	sbPilot.SaveName = "sbPilot"
+	sbPilot.TrailEffect = nil
+	sbPilot.ProjectileShootDownRadius = 50
+	sbPilot.ProjectileDrag = 100
+	sbPilot.ProjectileSplashDamageMaxRadius = 10
+	sbPilot.Projectile =
+	{
+		Root =
+		{
+			Name = "Pilot",
+			Angle = -180,
+			Sprite = path .. "/effects/media/pilot.png",
+			
+			ChildrenInFront = 
+			{
+				{
+					Name = "Parachute",
+					Angle = 0,
+					Pivot = {0, -1},
+					Sprite = path .. "/effects/media/parachute.png",
+				}
+			}
+		}
+	}
+	sbPilot.Effects.Impact = 
+	{
+		["firebeam"] = path .. "/effects/pilot_fall.lua",
+		["antiair"] = path .. "/effects/pilot_fall.lua",
+		["default"] = path .. "/effects/blank.lua",
+	}
+	table.insert(Projectiles, sbPilot)
+end
 	
 local sbBiP1 = DeepCopy(FindProjectile("nighthawk"))
 if sbBiP1 then
+	table.insert(Sprites, 
+	{
+		Name = "sbBiProp",
+		States =
+		{
+			Normal = { Frames =
+			{
+				{ texture = path .. "/weapons/biplane/propeller0.png",},
+				{ texture = path .. "/weapons/biplane/propeller1.png",},
+				mipmap = true,
+				duration = 0.04,
+			},},
+			Idle = Normal,
+		},
+	})
 	--first phase (before dropping flechettes)
 	sbBiP1.SaveName = "sbBiplaneP1"
+	sbBiP1.AntiAirHitpoints = 30
+	sbBiP1.AntiAirDamage = 30
+	sbBiP1.CollisionLookaheadDist = 500
 	sbBiP1.dlc2_Bombs = nil
 	sbBiP1.Projectile =
 	{
@@ -647,10 +701,27 @@ if sbBiP1 then
 			Sprite = path .. "/weapons/biplane/base.png",
 			PivotOffset = {0, 0},
 			Scale = 1.6,
+			
+			ChildrenInFront = 
+			{
+				{
+					Name = "Pilot",
+					Angle = 0,
+					Sprite = path .. "/weapons/biplane/basepilot.png",
+				},
+				{
+					Name = "Propeller",
+					Angle = 0,
+					Sprite = "sbBiProp",
+				},
+			},
 		}
 	}
 	--effects
 	sbBiP1.Effects.Impact["firebeam"] = { Effect = nil, Projectile = { Count = 1, Type = "flamingsbBi", StdDev = 0, }, Terminate = true, Splash = false,}
+	sbBiP1.Effects.Impact["antiair"] = { Effect = nil, Projectile = { Count = 1, Type = "sbBiplaneShotdown", StdDev = 0, }, Terminate = true, Splash = false,}
+	sbBiP1.Effects.Impact["default"] = { Effect = nil, Projectile = { Count = 1, Type = "sbBiplaneShotdown", StdDev = 0,}, Offset = -500, Terminate = true, Splash = false,}
+	sbBiP1.Effects.Impact["whitecaps"] = { Effect = nil, Projectile = { Count = 1, Type = "sbBiplaneShotdown", StdDev = 0,}, Offset = -500, Terminate = true, Splash = false,}
 	sbBiP1.Effects.Age = {t100 = { Effect = nil, Projectile = { Count = 1, Type = "sbBiplaneP2", StdDev = 0.0 }, Offset = 0, Terminate = true, Splash = false}}
 	--second phase (dropping flechettes)
 	local sbBiP2 = DeepCopy(sbBiP1)
@@ -667,6 +738,10 @@ if sbBiP1 then
 	local sbFlamingBi = DeepCopy(FindProjectile("flamingnighthawk"))
 	if sbFlamingBi then
 		sbFlamingBi.SaveName = "flamingsbBi"
+		sbFlamingBi.AntiAirHitpoints = 15
+		sbFlamingBi.ProjectileDamage = 50
+		sbFlamingBi.ProjectileSplashDamageMaxRadius = 120
+		sbFlamingBi.ProjectileSplashDamage = 40
 		sbFlamingBi.Projectile =
 		{
 			Root =
@@ -676,11 +751,31 @@ if sbBiP1 then
 				Sprite = path .. "/weapons/biplane/base.png",
 				PivotOffset = {0, 0},
 				Scale = 1.6,
+				ChildrenInFront = 
+				{
+					{
+						Name = "Propeller",
+						Angle = 0,
+						Sprite = "sbBiProp",
+					},
+				},
 			}
 		}
+		sbFlamingBi.Effects.Age = {t600 = { Effect = nil, Projectile = { Count = 1, Type = "sbPilot", StdDev = 0, Speed = 500 }, Offset = 0, Terminate = false, Splash = false},}
+		sbFlamingBi.Effects.Impact.whitecaps = "mods/dlc2/effects/thunderbolt_explode.lua"
+	end
+	--shotdown version
+	local sbShotdownBi = DeepCopy(sbFlamingBi)
+	if sbShotdownBi then
+		sbShotdownBi.SaveName = "sbBiplaneShotdown"
+		sbShotdownBi.TrailEffect = nil
+		sbShotdownBi.Effects.Age = {t1 = { Effect = nil, Projectile = { Count = 1, Type = "sbPilot", StdDev = 0, Speed = 500 }, Offset = 0, Terminate = false, Splash = false},}
+		sbShotdownBi.IncendiaryRadius = 40
+		sbShotdownBi.IncendiaryRadiusHeated = 60
 	end
 	--insert
 	table.insert(Projectiles, sbFlamingBi)
+	table.insert(Projectiles, sbShotdownBi)
 	table.insert(Projectiles, sbBiP2)
 	table.insert(Projectiles, sbBiP1)
 end
