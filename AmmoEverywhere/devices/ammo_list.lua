@@ -258,7 +258,7 @@ if FindDevice("ammo_nighthawk") then
 				dlc2_BuildQueue = "dlc2_runway",
 				Detail = "hud-detail-sbApache",
 				Icon = "hud-sbApache-icon",
-				MetalCost = 450,
+				MetalCost = 400,
 				EnergyCost = 5000,
 				Prerequisite = {{"munitions","factory"}},
 				Enabled = true,
@@ -363,10 +363,10 @@ if FindDevice("ammo_nighthawk") then
 				Detail = "hud-detail-sbBombGlider",
 				Icon = "hud-sbBombGlider-icon",
 				MetalCost = 75,
-				EnergyCost = 500,
-				Prerequisite = "munitions",
+				EnergyCost = 750,
+				Prerequisite = "workshop",
 				Enabled = true,
-				BuildTimeComplete = 20,
+				BuildTimeComplete = 18,
 			}
 		)
 	)

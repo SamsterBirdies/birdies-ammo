@@ -238,13 +238,25 @@ function OnDeviceHit(teamId, deviceId, saveName, newHealth, projectileNodeId, pr
 			sbReturnApache(deviceId, projectileNodeId)
 		end
 	end
+	
+	--projectile save name conditions
+	if GetNodeProjectileSaveName(projectileNodeId) == "sbFlechetteP2" then
+	--flechette velocity damage boost.
+	local velocity = NodeVelocity(projectileNodeId)
+	local damageDivider = 200
+	ApplyDamageToDevice(deviceId, math.sqrt(velocity["x"]^2 + velocity["y"]^2) / damageDivider)
+	Log(tostring(math.sqrt(velocity["x"]^2 + velocity["y"]^2)))
+	
 	--summon orbital artillery strike
-	if GetNodeProjectileSaveName(projectileNodeId) == "sbOrbitalArtilleryMarker" then
+	elseif GetNodeProjectileSaveName(projectileNodeId) == "sbOrbitalArtilleryMarker" then
 		sbCallArtillery(pos, projectileTeamId)
-	--do device steal
+	
+	--do harpoon device steal
 	elseif GetNodeProjectileSaveName(projectileNodeId) == "sbHarpoonP1" then
 		sbHarpoonDevice(projectileNodeId, projectileTeamId, deviceId, saveName)
 	end
+	
+	
 end
 
 function OnWeaponFired(teamId, saveName, weaponId, projectileNodeId, projectileNodeIdFrom)

@@ -627,9 +627,29 @@ if sbFlechetteP1 then
 	sbFlechetteP2.ProjectileSpriteMipMap = true
 	sbFlechetteP2.ProjectileSprite = path .. "/weapons/biplane/flechette.png"
 	sbFlechetteP2.ExpiresOnFreeFall = false
-	sbFlechetteP2.ProjectileDamage = 1
+	sbFlechetteP2.ProjectileDamage = 4
 	sbFlechetteP2.AntiAirHitpoints = 1
 	sbFlechetteP2.AntiAirDamage = 6
+	sbFlechetteP2.ProjectileMass = 1
+	sbFlechetteP2.PenetrationDamage = 460
+	sbFlechetteP2.ImpactMomentumLimit = nil
+	sbFlechetteP2.MomentumThreshold =
+	{
+		["bracing"] = { Reflect = 50, Penetrate = 1700 },
+		["armour"] = { Reflect = 1500, Penetrate = 2300 },
+		["door"] = { Reflect = 1500, Penetrate = 2300 },
+		["shield"] = { Reflect = 1500, Penetrate = 2300 },
+	}
+	sbFlechetteP2.DamageMultiplier =
+	{
+		{ SaveName = "machinegun", Direct = 0},
+		{ SaveName = "mortar", Direct = 0},
+		{ SaveName = "mortar2", Direct = 0},
+		{ SaveName = "turbine", Direct = 1.5},
+		{ SaveName = "structure", Direct = 3},
+		--{ SaveName = "weapon", Direct = 1},
+		--{ SaveName = "device", Direct = 0},
+	}
 	table.insert(Projectiles, sbFlechetteP2)
 	table.insert(Projectiles, sbFlechetteP1)
 end
@@ -691,7 +711,9 @@ if sbBiP1 then
 	sbBiP1.AntiAirHitpoints = 30
 	sbBiP1.AntiAirDamage = 30
 	sbBiP1.CollisionLookaheadDist = 500
+	sbBiP1.ProjectileShootDownRadius = 100
 	sbBiP1.dlc2_Bombs = nil
+	sbBiP1.TrailEffect = path .. "/effects/trail_biplane.lua"
 	sbBiP1.Projectile =
 	{
 		Root =
@@ -742,6 +764,7 @@ if sbBiP1 then
 		sbFlamingBi.ProjectileDamage = 50
 		sbFlamingBi.ProjectileSplashDamageMaxRadius = 120
 		sbFlamingBi.ProjectileSplashDamage = 40
+		sbFlamingBi.ProjectileShootDownRadius = 100
 		sbFlamingBi.Projectile =
 		{
 			Root =
@@ -768,8 +791,8 @@ if sbBiP1 then
 	local sbShotdownBi = DeepCopy(sbFlamingBi)
 	if sbShotdownBi then
 		sbShotdownBi.SaveName = "sbBiplaneShotdown"
-		sbShotdownBi.TrailEffect = nil
-		sbShotdownBi.Effects.Age = {t1 = { Effect = nil, Projectile = { Count = 1, Type = "sbPilot", StdDev = 0, Speed = 500 }, Offset = 0, Terminate = false, Splash = false},}
+		sbShotdownBi.TrailEffect = path .. "/effects/trail_biplane_damaged.lua"
+		sbShotdownBi.Effects.Age = {t240 = { Effect = nil, Projectile = { Count = 1, Type = "sbPilot", StdDev = 0, Speed = 500 }, Offset = 0, Terminate = false, Splash = false},}
 		sbShotdownBi.IncendiaryRadius = 40
 		sbShotdownBi.IncendiaryRadiusHeated = 60
 	end
