@@ -336,8 +336,8 @@ if FindProjectile("nighthawk") or FindProjectile("thunderbolt") then
 		sbApacheP1.ProjectileIncendiary = false
 		sbApacheP1.IncendiaryRadius = 150
 		sbApacheP1.IncendiaryRadiusHeated = 270
-		sbApacheP1.ProjectileShootDownRadius = 60
-		sbApacheP1.AntiAirHitpoints = 100
+		sbApacheP1.ProjectileShootDownRadius = 80
+		sbApacheP1.AntiAirHitpoints = 120
 		sbApacheP1.AntiAirDamage = 400
 		if FindProjectile("paveway") then
 			sbApacheP1.Effects = DeepCopy(FindProjectile("paveway").Effects)
@@ -396,7 +396,7 @@ if FindProjectile("nighthawk") or FindProjectile("thunderbolt") then
 		}
 		sbApacheP1.Effects.Age = 
 		{
-			t200 = { Effect = nil, Projectile = { Count = 1, Type = "sbApacheP2", StdDev = 0 }, Terminate = true, Splash = false,}
+			t200 = { Effect = nil, Projectile = { Count = 1, Type = "sbApacheP2", StdDev = 0 }, Terminate = true, Splash = false, KeepHitpointLoss = true}
 		}
 		sbApacheP1.Gravity = 0
 		sbApacheP1.FlipSpriteFacingLeft = true
@@ -405,7 +405,6 @@ if FindProjectile("nighthawk") or FindProjectile("thunderbolt") then
 		local sbApacheP2 = DeepCopy(sbApacheP1)
 		sbApacheP2.SaveName = "sbApacheP2"
 		sbApacheP2.Missile.RocketThrust = 14000
-		sbApacheP2.AntiAirHitpoints = 100
 		sbApacheP2.dlc2_Bombs = nil
 		local sbApacheS1 = { Effect = path .. "/effects/fire_20mmcannonApache.lua", Projectile = { Count = 1, Type = "cannon20mm", StdDev = 0.1, Speed = 7000 }, Terminate = false, Splash = false,}
 		local sbApacheS2 = { Effect = path .. "/effects/apache_launchSmall.lua", Projectile = { Count = 1, Type = "sbApacheHydra", StdDev = 0.1, Speed = 2000 }, Terminate = false, Splash = false,}
@@ -418,16 +417,16 @@ if FindProjectile("nighthawk") or FindProjectile("thunderbolt") then
 			sbApacheP2.Effects.Age['t' .. tostring(i)] = sbApacheS2
 		end
 		sbApacheP2.Effects.Age['t4000'] = sbApacheS3
-		sbApacheP2.Effects.Age['t4600'] = { Effect = path .. "/effects/apache_turn.lua", Projectile = { Count = 1, Type = "sbApacheP3", StdDev = 0, Speed = -1500 }, Terminate = true, Splash = false,}
+		sbApacheP2.Effects.Age['t4600'] = { Effect = path .. "/effects/apache_turn.lua", Projectile = { Count = 1, Type = "sbApacheP3", StdDev = 0, Speed = -1500 }, Terminate = true, Splash = false, KeepHitpointLoss = true}
 		sbApacheP2.CollisionLookaheadDist = 150
-		sbApacheP2.Effects.Impact.default = { Effect = nil, Projectile = { Count = 1, Type = "sbApacheP3", StdDev = 0, Speed = -1500 }, Offset = -150, Terminate = true, Splash = false,}
+		sbApacheP2.Effects.Impact.default = { Effect = nil, Projectile = { Count = 1, Type = "sbApacheP3", StdDev = 0, Speed = -1500 }, Offset = -150, Terminate = true, Splash = false, KeepHitpointLoss = true}
 		--phase 3
 		local sbApacheP3 = DeepCopy(sbApacheP1)
 		sbApacheP3.SaveName = "sbApacheP3"
 		sbApacheP3.TrailEffect = path .. "/effects/trail_apache_turn.lua"
 		sbApacheP3.ProjectileType = "mortar"
 		sbApacheP3.ProjectileDrag = 0.01
-		sbApacheP3.AntiAirHitpoints = 75
+		--sbApacheP3.AntiAirHitpoints = 75
 		sbApacheP3.dlc2_Bombs = nil
 		sbApacheP3.Missile = nil
 		local sbApacheS4 = { Effect = nil, Projectile = { Count = 1, Type = "sbApacheS4", StdDev = 0, Speed = 10000 }, Terminate = false, Splash = false,}
@@ -530,22 +529,8 @@ end
 local sbB2 = DeepCopy(FindProjectile("nighthawk"))
 if sbB2 then
 	sbB2.SaveName = "sbB2"
-	--[[sbB2.dlc2_Bombs =
-	{
-		Count = 60,
-		Period = 0.04,
-		Speed = 1000,
-		OffsetX = 0,
-		OffsetY = 180,
-		Projectile = "sbB2bomb",
-		FireEffect = "mods/dlc2/effects/bomb_release.lua",
-		BankEffect = "mods/dlc2/effects/nighthawk_banking.lua",
-		AIAnticipatesDelivery = true,
-		BankingLookahead = 2500,
-		AbortLookahead = 0,
-	}]]
 	sbB2.dlc2_Bombs = nil
-	sbB2.Effects.Impact['firebeam'] = { Effect = nil, Projectile = { Count = 1, Type = "flamingsbB2", StdDev = 0, }, Terminate = true, Splash = false,}
+	sbB2.Effects.Impact['firebeam'] = { Effect = nil, Projectile = { Count = 1, Type = "flamingsbB2", StdDev = 0, }, Terminate = true, Splash = false, KeepHitpointLoss = true}
 	sbB2.Projectile =
 	{
 		Root =
@@ -557,7 +542,7 @@ if sbB2 then
 			Scale = 1.1,
 		}
 	}
-	sbB2.Effects.Age = { ['t40'] = { Effect = nil, Projectile = { Count = 1, Type = "sbB2P2", StdDev = 0 }, Terminate = true, Splash = false,}}
+	sbB2.Effects.Age = { ['t40'] = { Effect = nil, Projectile = { Count = 1, Type = "sbB2P2", StdDev = 0 }, Terminate = true, Splash = false, KeepHitpointLoss = true,}}
 	--phase 2, bomb dropping
 	local sbB2P2 = DeepCopy(sbB2)
 	if sbB2P2 then
@@ -749,7 +734,7 @@ if sbBiP1 then
 	sbBiP1.Effects.Impact["antiair"] = { Effect = nil, Projectile = { Count = 1, Type = "sbBiplaneShotdown", StdDev = 0, }, Terminate = true, Splash = false,}
 	sbBiP1.Effects.Impact["default"] = { Effect = nil, Projectile = { Count = 1, Type = "sbBiplaneCrashing", StdDev = 0,}, Offset = -500, Terminate = true, Splash = false,}
 	sbBiP1.Effects.Impact["whitecaps"] = { Effect = nil, Projectile = { Count = 1, Type = "sbBiplaneCrashing", StdDev = 0,}, Offset = -500, Terminate = true, Splash = false,}
-	sbBiP1.Effects.Age = {t100 = { Effect = nil, Projectile = { Count = 1, Type = "sbBiplaneP2", StdDev = 0.0 }, Offset = 0, Terminate = true, Splash = false}}
+	sbBiP1.Effects.Age = {t100 = { Effect = nil, Projectile = { Count = 1, Type = "sbBiplaneP2", StdDev = 0.0 }, Offset = 0, Terminate = true, Splash = false, KeepHitpointLoss = true,}}
 	--second phase (dropping flechettes)
 	local sbBiP2 = DeepCopy(sbBiP1)
 	sbBiP2.SaveName = "sbBiplaneP2"

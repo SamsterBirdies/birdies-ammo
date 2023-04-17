@@ -73,7 +73,7 @@
 			<value>6</value>
 		</property>
 		<property name="priority">
-			<value>3</value>
+			<value>4</value>
 		</property>
 		<property name="minimumDistance">
 			<value>2000</value>
@@ -168,14 +168,8 @@
 		<property name="length">
 			<value>5</value>
 		</property>
-		<property name="startOffset">
-			<value>49.5</value>
-		</property>
 		<relationship name="automators">
 			<destination>{449c34ff-9ff0-475a-a09a-5435a7ced82b}</destination>
-		</relationship>
-		<relationship name="modulators">
-			<destination>{da4ee40a-cd17-493e-887f-c7540942c834}</destination>
 		</relationship>
 		<relationship name="audioFile">
 			<destination>{e4464bcd-7a66-4067-b928-a95c6104a5db}</destination>
@@ -227,14 +221,6 @@
 		<relationship name="automationCurves">
 			<destination>{1e860146-e010-40c9-9b84-314bd38e3e2a}</destination>
 		</relationship>
-	</object>
-	<object class="RandomizerModulator" id="{da4ee40a-cd17-493e-887f-c7540942c834}">
-		<property name="nameOfPropertyBeingModulated">
-			<value>startOffset</value>
-		</property>
-		<property name="amount">
-			<value>100</value>
-		</property>
 	</object>
 	<object class="MixerBusEffectChain" id="{5848f35a-507e-4393-8748-60e9bb88a7a9}">
 		<relationship name="effects">

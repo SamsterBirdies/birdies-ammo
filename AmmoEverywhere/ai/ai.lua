@@ -27,3 +27,9 @@ ShootableProjectile["flamingsbB2"] = true
 --bombglider
 ShootableProjectile["sbBombGlider"] = true
 ShootableProjectile["sbBombGliderBomb"] = true
+--biplane
+ShootableProjectile["sbBiplaneP1"] = true
+ShootableProjectile["sbBiplaneP2"] = true
+ShootableProjectile["flamingsbBi"] = true
+ShootableProjectile["sbBiplaneShotdown"] = true
+ShootableProjectile["sbBiplaneCrashing"] = true

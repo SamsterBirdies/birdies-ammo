@@ -1,17 +1,13 @@
 --vanilla-ish--
 
-Biplane:
-	A WWI biplane that drops flechettes. Does more damage with height (flechette velocity).
-	After dropping flechettes, the pilot parachutes and lets the plane run into something. (same action when shot down. same action when about to run into a wall. same action with firebeam, except flaming plane).
-	Can shoot down the parachuting pilot.
-	If the pilot happens to land on an enemy base, then the pilot will be captured. (Unlock a free pilot weapon (m1911) for the player of that fort.)
-	Unlocked with workshop.
-	Ammo for runway.
+Upgrade to biplane, drop bomb(s).
+
+Overloaded cartridges.
+	Ammo for ap sniper. (possibly for all other single shot bullet type weapons)
+
 Ultimate abilities for weak weapons:
 	Population cap of 1.
-	
-	Machinegun:
-		Lead Hail (rains bullets from the sky across the map)
+
 	Incendiary mortar:
 		Hellfire bombardment (fires an incendiary orbital laser marker that rains down incendiary mortars)
 	Flak:
