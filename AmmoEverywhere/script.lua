@@ -245,7 +245,6 @@ function OnDeviceHit(teamId, deviceId, saveName, newHealth, projectileNodeId, pr
 	local velocity = NodeVelocity(projectileNodeId)
 	local damageDivider = 200
 	ApplyDamageToDevice(deviceId, math.sqrt(velocity["x"]^2 + velocity["y"]^2) / damageDivider)
-	Log(tostring(math.sqrt(velocity["x"]^2 + velocity["y"]^2)))
 	
 	--summon orbital artillery strike
 	elseif GetNodeProjectileSaveName(projectileNodeId) == "sbOrbitalArtilleryMarker" then

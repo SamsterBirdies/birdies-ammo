@@ -55,6 +55,11 @@ Merge(Device,
 	ult_sbmg = L"Hail of Lead",
 	ult_sbmgTip2 = L"Rains down bullets across the whole map.",
 	ult_sbmgTip3 = L"Population Cap: 1",
+	
+	ammo_sbBiplane = L"Flechette Biplane",
+	ammo_sbBiplaneTip2 = L"Drops flechettes. Effective at clearing trenches.",
+	ammo_sbBiplaneTip3 = L"Flechettes deal extra damage and penetration at greater drop heights.",
+	
 })
 Merge(Weapon,
 {

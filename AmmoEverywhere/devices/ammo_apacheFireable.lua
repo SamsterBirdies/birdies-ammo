@@ -41,7 +41,7 @@ dlc2_Ammunition =
 		Sprite = "hud-ammo-sbApache",
 		Devices = { {Name = "ammo_sbApacheFireable", Consume = true} },
 		Weapons = { "runway", "runway2" },
-		MetalFireCost = 100,
+		MetalFireCost = 50,
 		EnergyFireCost = 2000,
 		Projectile = "sbApacheP1",
 		MinFireSpeed = 1600,

@@ -1,4 +1,5 @@
 LifeSpan = 3
+SoundEvent = "mods/BirdiesAmmo/biplane_bank"
 Sprites =
 {
 	{

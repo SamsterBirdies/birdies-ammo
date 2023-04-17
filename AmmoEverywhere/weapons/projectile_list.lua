@@ -622,6 +622,7 @@ if sbFlechetteP1 then
 	sbFlechetteP2.SaveName = "sbFlechetteP2"
 	sbFlechetteP2.MinAge = nil
 	sbFlechetteP2.MaxAge = 60
+	sbFlechetteP2.ProjectileShootDownRadius = sbFlechetteP2.ProjectileShootDownRadius * 1.5
 	sbFlechetteP2.ProjectileDrag = 0
 	sbFlechetteP2.WeaponDamageBonus = 0
 	sbFlechetteP2.ProjectileSpriteMipMap = true
@@ -629,7 +630,7 @@ if sbFlechetteP1 then
 	sbFlechetteP2.ExpiresOnFreeFall = false
 	sbFlechetteP2.ProjectileDamage = 4
 	sbFlechetteP2.AntiAirHitpoints = 1
-	sbFlechetteP2.AntiAirDamage = 6
+	sbFlechetteP2.AntiAirDamage = 10
 	sbFlechetteP2.ProjectileMass = 1
 	sbFlechetteP2.PenetrationDamage = 460
 	sbFlechetteP2.ImpactMomentumLimit = nil
@@ -646,9 +647,12 @@ if sbFlechetteP1 then
 		{ SaveName = "mortar", Direct = 0},
 		{ SaveName = "mortar2", Direct = 0},
 		{ SaveName = "turbine", Direct = 1.5},
+		{ SaveName = "turbine2", Direct = 1.5},
+		{ SaveName = "smokestack", Direct = 1.5},
+		{ SaveName = "smokestack2", Direct = 1.5},
+		{ SaveName = "sandbags", Direct = 2.5},
 		{ SaveName = "structure", Direct = 3},
-		--{ SaveName = "weapon", Direct = 1},
-		--{ SaveName = "device", Direct = 0},
+		{ SaveName = "turret", AntiAir = 2},
 	}
 	table.insert(Projectiles, sbFlechetteP2)
 	table.insert(Projectiles, sbFlechetteP1)
@@ -660,6 +664,7 @@ if sbPilot then
 	sbPilot.TrailEffect = nil
 	sbPilot.ProjectileShootDownRadius = 50
 	sbPilot.ProjectileDrag = 100
+	sbPilot.ProjectileDamage = 30
 	sbPilot.ProjectileSplashDamageMaxRadius = 10
 	sbPilot.Projectile =
 	{
@@ -742,8 +747,8 @@ if sbBiP1 then
 	--effects
 	sbBiP1.Effects.Impact["firebeam"] = { Effect = nil, Projectile = { Count = 1, Type = "flamingsbBi", StdDev = 0, }, Terminate = true, Splash = false,}
 	sbBiP1.Effects.Impact["antiair"] = { Effect = nil, Projectile = { Count = 1, Type = "sbBiplaneShotdown", StdDev = 0, }, Terminate = true, Splash = false,}
-	sbBiP1.Effects.Impact["default"] = { Effect = nil, Projectile = { Count = 1, Type = "sbBiplaneShotdown", StdDev = 0,}, Offset = -500, Terminate = true, Splash = false,}
-	sbBiP1.Effects.Impact["whitecaps"] = { Effect = nil, Projectile = { Count = 1, Type = "sbBiplaneShotdown", StdDev = 0,}, Offset = -500, Terminate = true, Splash = false,}
+	sbBiP1.Effects.Impact["default"] = { Effect = nil, Projectile = { Count = 1, Type = "sbBiplaneCrashing", StdDev = 0,}, Offset = -500, Terminate = true, Splash = false,}
+	sbBiP1.Effects.Impact["whitecaps"] = { Effect = nil, Projectile = { Count = 1, Type = "sbBiplaneCrashing", StdDev = 0,}, Offset = -500, Terminate = true, Splash = false,}
 	sbBiP1.Effects.Age = {t100 = { Effect = nil, Projectile = { Count = 1, Type = "sbBiplaneP2", StdDev = 0.0 }, Offset = 0, Terminate = true, Splash = false}}
 	--second phase (dropping flechettes)
 	local sbBiP2 = DeepCopy(sbBiP1)
@@ -795,10 +800,20 @@ if sbBiP1 then
 		sbShotdownBi.Effects.Age = {t240 = { Effect = nil, Projectile = { Count = 1, Type = "sbPilot", StdDev = 0, Speed = 500 }, Offset = 0, Terminate = false, Splash = false},}
 		sbShotdownBi.IncendiaryRadius = 40
 		sbShotdownBi.IncendiaryRadiusHeated = 60
+		sbShotdownBi.Effects.Impact.firebeam = "mods/dlc2/effects/thunderbolt_explode.lua"
+	end
+	--crashing version
+	local sbCrashingBi = DeepCopy(sbShotdownBi)
+	if sbCrashingBi then
+		sbCrashingBi.SaveName = "sbBiplaneCrashing"
+		sbCrashingBi.TrailEffect = path .. "/effects/trail_biplane_crashing.lua"
+		sbCrashingBi.Effects.Age = {t1 = { Effect = nil, Projectile = { Count = 1, Type = "sbPilot", StdDev = 0, Speed = 500 }, Offset = 0, Terminate = false, Splash = false},}
+		sbCrashingBi.AntiAirHitpoints = 30
 	end
 	--insert
 	table.insert(Projectiles, sbFlamingBi)
 	table.insert(Projectiles, sbShotdownBi)
+	table.insert(Projectiles, sbCrashingBi)
 	table.insert(Projectiles, sbBiP2)
 	table.insert(Projectiles, sbBiP1)
 end
