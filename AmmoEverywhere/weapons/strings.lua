@@ -57,8 +57,8 @@ Merge(Device,
 	ult_sbmgTip3 = L"Population Cap: 1",
 	
 	ammo_sbBiplane = L"Flechette Biplane",
-	ammo_sbBiplaneTip2 = L"Drops flechettes. Effective at clearing trenches.",
-	ammo_sbBiplaneTip3 = L"Flechettes deal extra damage and penetration at greater drop heights.",
+	ammo_sbBiplaneTip2 = L"Drops flechettes. Effective at clearing trenches. Can break through anti-air when amassed.",
+	ammo_sbBiplaneTip3 = L"Flechettes deal extra damage and penetration when dropped from greater heights.",
 	
 })
 Merge(Weapon,
