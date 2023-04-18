@@ -734,23 +734,24 @@ if sbBiP1 then
 	sbBiP1.Effects.Impact["antiair"] = { Effect = nil, Projectile = { Count = 1, Type = "sbBiplaneShotdown", StdDev = 0, }, Terminate = true, Splash = false,}
 	sbBiP1.Effects.Impact["default"] = { Effect = nil, Projectile = { Count = 1, Type = "sbBiplaneCrashing", StdDev = 0,}, Offset = -500, Terminate = true, Splash = false,}
 	sbBiP1.Effects.Impact["whitecaps"] = { Effect = nil, Projectile = { Count = 1, Type = "sbBiplaneCrashing", StdDev = 0,}, Offset = -500, Terminate = true, Splash = false,}
-	sbBiP1.Effects.Age = {t100 = { Effect = nil, Projectile = { Count = 1, Type = "sbBiplaneP2", StdDev = 0.0 }, Offset = 0, Terminate = true, Splash = false, KeepHitpointLoss = true,}}
+	sbBiP1.Effects.Age = {t100 = { Effect = path .. "/effects/bomb_hatch.lua", Projectile = { Count = 1, Type = "sbBiplaneP2", StdDev = 0.0 }, Offset = 0, Terminate = true, Splash = false, KeepHitpointLoss = true,}}
 	--second phase (dropping flechettes)
 	local sbBiP2 = DeepCopy(sbBiP1)
 	sbBiP2.SaveName = "sbBiplaneP2"
+	sbBiP2.TrailEffect = path .. "/effects/trail_biplane_dropping_flechettes.lua"
 	--age
 	local bombCount = 20
 	local bombPeriod = 40
 	sbBiP2.Effects.Age = {}
 	for i = 1, bombPeriod * bombCount, bombPeriod do
-		sbBiP2.Effects.Age["t" .. tostring(i)] = { Effect = "mods/dlc2/effects/bomb_release.lua", Projectile = { Count = 1, Type = "sbFlechetteP1", StdDev = 0, Speed = 1000 }, Offset = 0, Terminate = false, Splash = false}
+		sbBiP2.Effects.Age["t" .. tostring(i)] = { Effect = nil, Projectile = { Count = 1, Type = "sbFlechetteP1", StdDev = 0, Speed = 1000 }, Offset = 0, Terminate = false, Splash = false}
 	end
 	sbBiP2.Effects.Age['t' .. tostring(bombPeriod*(bombCount + 1))] = {Effect = path .. "/effects/biplane_bank.lua", Terminate = true, Splash = false,}
 	--firebeamed version
 	local sbFlamingBi = DeepCopy(FindProjectile("flamingnighthawk"))
 	if sbFlamingBi then
 		sbFlamingBi.SaveName = "flamingsbBi"
-		sbFlamingBi.AntiAirHitpoints = 15
+		sbFlamingBi.AntiAirHitpoints = 30
 		sbFlamingBi.ProjectileDamage = 50
 		sbFlamingBi.ProjectileSplashDamageMaxRadius = 120
 		sbFlamingBi.ProjectileSplashDamage = 40

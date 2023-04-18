@@ -352,7 +352,7 @@ if FindDevice("ammo_nighthawk") then
 		)
 	)
 	--biplane
-	--table.insert(Sprites, DetailSprite("hud-detail-sbBombGlider", "bombGlider", path))
+	table.insert(Sprites, DetailSprite("hud-detail-sbBiplaneFlechette", "biplane", path))
 	table.insert(Sprites, ButtonSprite("hud-sbBiplaneFlechette-icon", "HUD/HUD-biplaneFlechette", nil, ButtonSpriteBottom, nil, nil, path))
 	table.insert(Devices, IndexOfDevice("ammo_sbBombGlider"),
 		InheritType(FindDevice("ammo_nighthawk"),nil,
@@ -360,7 +360,7 @@ if FindDevice("ammo_nighthawk") then
 				SaveName = "ammo_sbBiplane",
 				FileName = path .. "/devices/ammo_biplane.lua",
 				dlc2_BuildQueue = "dlc2_runway",
-				Detail = "hud-detail-sbBombGlider",
+				Detail = "hud-detail-sbBiplaneFlechette",
 				Icon = "hud-sbBiplaneFlechette-icon",
 				MetalCost = 75,
 				EnergyCost = 750,

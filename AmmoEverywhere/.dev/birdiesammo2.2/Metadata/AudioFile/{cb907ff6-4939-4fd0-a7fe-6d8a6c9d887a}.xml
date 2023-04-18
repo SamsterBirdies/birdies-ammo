@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{cb907ff6-4939-4fd0-a7fe-6d8a6c9d887a}">
+		<property name="assetPath">
+			<value>nails0.flac</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>1.02297052154195</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{57da8d23-6797-4a81-8598-bfcd0d674e8d}</destination>
+		</relationship>
+	</object>
+</objects>
