@@ -28,6 +28,32 @@ Sprites =
 			},
 		},
 	},
+	{
+		Name = "sbBiBanking_flipped",
+
+		States =
+		{
+			Normal =
+			{
+				Frames =
+				{
+					{ texture = path .. "/effects/media/bibank_flipped0.png",},
+					{ texture = path .. "/effects/media/bibank_flipped1.png",},
+					{ texture = path .. "/effects/media/bibank_flipped2.png",},
+					{ texture = path .. "/effects/media/bibank_flipped3.png",},
+					{ texture = path .. "/effects/media/bibank_flipped4.png",},
+					{ texture = path .. "/effects/media/bibank_flipped5.png",},
+					{ texture = path .. "/effects/media/bibank_flipped6.png",},
+					{ texture = path .. "/effects/media/bibank_flipped7.png",},
+					--{ texture = path .. "/effects/media/bibank8.png", duration = 0.04},
+					{ texture = path .. "/blank.png", duration = 5 },
+					mipmap = true,
+					duration = 0.12
+				},
+				NextState = "Normal",
+			},
+		},
+	},
 }
 Effects =
 {
@@ -42,12 +68,13 @@ Effects =
 		Additive = false,
 		TimeToLive = 3,
 		Angle = -90,
-		InitialSize = 1.6,
+		InitialSize = 1.6 * 2, --image is now half resolution
 		ExpansionRate = 0,
 		AngularVelocity = 0,
 		RandomAngularVelocityMagnitude = 0,
 		Colour1 = { 255, 255, 255, 255 },
 		Colour2 = { 255, 255, 255, 255 },
+		FlipVertOnLeft = true,
 	},
 	{
 		Type = "sprite",
@@ -60,11 +87,12 @@ Effects =
 		Additive = false,
 		TimeToLive = 4,
 		Angle = -90,
-		InitialSize = 1.6,
+		InitialSize = 1.6 * 2,
 		ExpansionRate = -200,
 		AngularVelocity = 0,
 		RandomAngularVelocityMagnitude = 0,
 		Colour1 = { 255, 255, 255, 255 },
 		Colour2 = { 255, 255, 255, 0 },
+		FlipVertOnLeft = true,
 	},
 }

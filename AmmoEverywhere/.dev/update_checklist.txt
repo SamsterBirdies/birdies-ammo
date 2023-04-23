@@ -1,3 +1,1 @@
-	birdies ammmo biplane checklist.
-
-add chinese translation.
+reduce image file dimensions to improve vram usage. Crop, or resize images to reasonable levels.

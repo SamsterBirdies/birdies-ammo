@@ -698,6 +698,7 @@ if sbBiP1 then
 	})
 	--first phase (before dropping flechettes)
 	sbBiP1.SaveName = "sbBiplaneP1"
+	sbBiP1.FlipSpriteFacingLeft = true
 	sbBiP1.AntiAirHitpoints = 30
 	sbBiP1.AntiAirDamage = 30
 	sbBiP1.CollisionLookaheadDist = 500

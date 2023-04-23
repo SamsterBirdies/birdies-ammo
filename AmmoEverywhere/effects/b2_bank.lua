@@ -42,11 +42,12 @@ Effects =
 		Additive = false,
 		TimeToLive = 3,
 		Angle = -90,
-		InitialSize = 1.6,
+		InitialSize = 1.6 * 2, --image is now half resolution
 		ExpansionRate = 0,
 		AngularVelocity = 0,
 		RandomAngularVelocityMagnitude = 0,
 		Colour1 = { 255, 255, 255, 255 },
 		Colour2 = { 255, 255, 255, 255 },
+		FlipVertOnLeft = true,
 	},
 }
