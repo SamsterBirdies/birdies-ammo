@@ -1,6 +1,7 @@
 dofile("mods/dlc2/devices/ammo_thunderbolt.lua")
 Sprites = {}
 ConsumeEffect = "mods/dlc2/effects/ammo_consumption.lua"
+DestroyEffect = "effects/battery_explode.lua"
 HitPoints = 90
 dofile('ui/uihelper.lua')
 table.insert(Sprites, ButtonSprite("hud-ammo-sbBattery", "context/HUD-battery", nil, nil, nil, nil, path))

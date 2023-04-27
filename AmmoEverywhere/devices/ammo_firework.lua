@@ -1,6 +1,7 @@
 dofile("mods/dlc2/devices/ammo_decoy.lua")
 Sprites = {}
 ConsumeEffect = "mods/dlc2/effects/ammo_consumption.lua"
+DestroyEffect = "effects/battery_explode.lua"
 dofile('ui/uihelper.lua')
 table.insert(Sprites, ButtonSprite("hud-ammo-sbFirework", "context/HUD-firework", nil, nil, nil, nil, path))
 DestroyProjectile = "sbFireworkP1"

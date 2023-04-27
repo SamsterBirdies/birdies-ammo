@@ -21,7 +21,7 @@ DeviceSplashDamage = 150
 DeviceSplashDamageMaxRadius = 300
 DeviceSplashDamageDelay = 0.3
 HitPoints = 90
-
+DestroyEffect = "effects/missile_ground_hit.lua"
 dofile('ui/uihelper.lua')
 table.insert(Sprites, ButtonSprite("hud-ammo-sbNuke", "context/HUD-nuke", nil, nil, nil, nil, path))
 table.insert(Sprites,

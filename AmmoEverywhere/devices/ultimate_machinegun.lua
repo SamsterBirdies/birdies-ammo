@@ -6,7 +6,7 @@ DeviceSplashDamage = 0
 IncendiaryRadius = 0
 IncendiaryRadiusHeated = 0
 IgnitePlatformOnDestruct = false
-
+DestroyEffect = "effects/battery_explode.lua"
 Root = 
 {
 	Sprite = path .. "/devices/ammo/leadHailAmmo.png",

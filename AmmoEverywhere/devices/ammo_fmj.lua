@@ -5,6 +5,7 @@ StructureSplashDamage = 0
 DeviceSplashDamage = 0
 IncendiaryRadius = 0
 IncendiaryRadiusHeated = 0
+DestroyEffect = "effects/battery_explode.lua"
 IgnitePlatformOnDestruct = false
 dofile('ui/uihelper.lua')
 table.insert(Sprites, ButtonSprite("hud-ammo-sbFMJ", "context/HUD-fmj", nil, nil, nil, nil, path))

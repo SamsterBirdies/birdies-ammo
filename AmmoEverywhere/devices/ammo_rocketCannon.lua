@@ -13,6 +13,7 @@ StructureSplashDamageMaxRadius = 0
 DeviceSplashDamage = 0
 DeviceSplashDamageMaxRadius = 0
 DeviceSplashDamageDelay = 0
+DestroyEffect = "effects/battery_explode.lua"
 Root = 
 {
 	Sprite = path .. "/devices/ammo/rocketCannonAmmo.png",

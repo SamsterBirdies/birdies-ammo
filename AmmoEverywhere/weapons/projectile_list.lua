@@ -731,6 +731,7 @@ if sbBiP1 then
 		}
 	}
 	--effects
+	local sbbicrash = {AlignedToVel = true, Effect = path .. "/effects/biplane_explode.lua"}
 	sbBiP1.Effects.Impact["firebeam"] = { Effect = nil, Projectile = { Count = 1, Type = "flamingsbBi", StdDev = 0, }, Terminate = true, Splash = false,}
 	sbBiP1.Effects.Impact["antiair"] = { Effect = nil, Projectile = { Count = 1, Type = "sbBiplaneShotdown", StdDev = 0, }, Terminate = true, Splash = false,}
 	sbBiP1.Effects.Impact["default"] = { Effect = nil, Projectile = { Count = 1, Type = "sbBiplaneCrashing", StdDev = 0,}, Offset = -500, Terminate = true, Splash = false,}
@@ -753,9 +754,11 @@ if sbBiP1 then
 	if sbFlamingBi then
 		sbFlamingBi.SaveName = "flamingsbBi"
 		sbFlamingBi.AntiAirHitpoints = 30
-		sbFlamingBi.ProjectileDamage = 50
+		sbFlamingBi.ProjectileDamage = 300
 		sbFlamingBi.ProjectileSplashDamageMaxRadius = 120
 		sbFlamingBi.ProjectileSplashDamage = 40
+		sbFlamingBi.IncendiaryRadius = 60
+		sbFlamingBi.IncendiaryRadiusHeated = 90
 		sbFlamingBi.ProjectileShootDownRadius = 100
 		sbFlamingBi.Projectile =
 		{
@@ -777,7 +780,9 @@ if sbBiP1 then
 			}
 		}
 		sbFlamingBi.Effects.Age = {t600 = { Effect = nil, Projectile = { Count = 1, Type = "sbPilot", StdDev = 0, Speed = 500 }, Offset = 0, Terminate = false, Splash = false},}
-		sbFlamingBi.Effects.Impact.whitecaps = "mods/dlc2/effects/thunderbolt_explode.lua"
+		sbFlamingBi.Effects.Impact.whitecaps = sbbicrash
+		sbFlamingBi.Effects.Impact.default = sbbicrash
+		sbFlamingBi.Effects.Impact.antiair = sbbicrash
 	end
 	--shotdown version
 	local sbShotdownBi = DeepCopy(sbFlamingBi)
@@ -785,9 +790,10 @@ if sbBiP1 then
 		sbShotdownBi.SaveName = "sbBiplaneShotdown"
 		sbShotdownBi.TrailEffect = path .. "/effects/trail_biplane_damaged.lua"
 		sbShotdownBi.Effects.Age = {t240 = { Effect = nil, Projectile = { Count = 1, Type = "sbPilot", StdDev = 0, Speed = 500 }, Offset = 0, Terminate = false, Splash = false},}
-		sbShotdownBi.IncendiaryRadius = 40
-		sbShotdownBi.IncendiaryRadiusHeated = 60
-		sbShotdownBi.Effects.Impact.firebeam = "mods/dlc2/effects/thunderbolt_explode.lua"
+		sbShotdownBi.ProjectileDamage = 90
+		sbShotdownBi.IncendiaryRadius = 30
+		sbShotdownBi.IncendiaryRadiusHeated = 50
+		sbShotdownBi.Effects.Impact.firebeam = sbbicrash
 	end
 	--crashing version
 	local sbCrashingBi = DeepCopy(sbShotdownBi)

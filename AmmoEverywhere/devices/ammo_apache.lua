@@ -1,6 +1,7 @@
 dofile("mods/dlc2/devices/ammo_thunderbolt.lua")
 Sprites = {}
 ConsumeEffect = "mods/dlc2/effects/ammo_consumption.lua"
+DestroyEffect = "effects/battery_explode.lua"
 Root = 
 {
 	Sprite = path .. "/devices/ammo/apacheAmmo.png",

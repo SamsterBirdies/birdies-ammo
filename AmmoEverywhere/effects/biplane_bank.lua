@@ -28,32 +28,6 @@ Sprites =
 			},
 		},
 	},
-	{
-		Name = "sbBiBanking_flipped",
-
-		States =
-		{
-			Normal =
-			{
-				Frames =
-				{
-					{ texture = path .. "/effects/media/bibank_flipped0.png",},
-					{ texture = path .. "/effects/media/bibank_flipped1.png",},
-					{ texture = path .. "/effects/media/bibank_flipped2.png",},
-					{ texture = path .. "/effects/media/bibank_flipped3.png",},
-					{ texture = path .. "/effects/media/bibank_flipped4.png",},
-					{ texture = path .. "/effects/media/bibank_flipped5.png",},
-					{ texture = path .. "/effects/media/bibank_flipped6.png",},
-					{ texture = path .. "/effects/media/bibank_flipped7.png",},
-					--{ texture = path .. "/effects/media/bibank8.png", duration = 0.04},
-					{ texture = path .. "/blank.png", duration = 5 },
-					mipmap = true,
-					duration = 0.12
-				},
-				NextState = "Normal",
-			},
-		},
-	},
 }
 Effects =
 {

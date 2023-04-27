@@ -2,6 +2,7 @@ dofile("mods/dlc2/devices/ammo_decoy.lua")
 Sprites = {}
 HitPoints = 90
 dofile('ui/uihelper.lua')
+DestroyEffect = "effects/battery_explode.lua"
 table.insert(Sprites, ButtonSprite("hud-ammo-sbMortarAllInOne", "context/HUD-mortarAllInOne", nil, nil, nil, nil, path))
 table.insert(Sprites,
 	{

@@ -1,6 +1,7 @@
 dofile("mods/dlc2/devices/ammo_orbital_sweep.lua")
 Sprites = {}
 ConsumeEffect = "mods/dlc2/effects/ammo_consumption.lua"
+DestroyEffect = "effects/battery_explode.lua"
 dofile('ui/uihelper.lua')
 table.insert(Sprites, ButtonSprite("hud-ammo-sbOrbitalArtillery", "context/HUD-orbitalArtillery", nil, nil, nil, nil, path))
 table.insert(Sprites,
