@@ -18,7 +18,7 @@ function sbReturnApache(deviceId, projectileNodeId)
 	CloseWeaponDoors(deviceId)
 end
 -----------------------Artillery barrage----------------
-function sbCallArtillery(markerPOS, team)
+function sbCallArtillery(markerPOS, team, clientId)
 	--get position to place weapon
 	local extents = GetWorldExtents()
 	local devicePOS = Vec3(0,-12000,0)
@@ -42,18 +42,17 @@ function sbCallArtillery(markerPOS, team)
 	EnableWeapon("sbOrbitalArtillerySpread_source", true, 1)
 	EnableWeapon("sbOrbitalArtillerySpread_source", true, 2)
 	local deviceId = dlc2_CreateFloatingDevice(team, "sbOrbitalArtillerySpread_source", devicePOS, 0.0)
+	SetWeaponClientId(deviceId, clientId)
 	ScheduleCall(2.5, FireWeapon, deviceId, markerPOS, 0.0, FIREFLAG_NORMAL)
 	--make higher weapons for more spread and new angles
-	devicePOS["y"] = devicePOS["y"] - 3000
-	--disabled 1 weapon as a nerf
-	--local deviceId2 = dlc2_CreateFloatingDevice(team, "sbOrbitalArtillerySpread_source", devicePOS, 0.0)
-	--ScheduleCall(2.65, FireWeapon, deviceId2, markerPOS, 0.0, FIREFLAG_NORMAL) 
+	devicePOS["y"] = devicePOS["y"] - 6000
+	local deviceId2 = dlc2_CreateFloatingDevice(team, "sbOrbitalArtillery_source", devicePOS, 0.0)
+	SetWeaponClientId(deviceId2, clientId)
+	ScheduleCall(3.1, FireWeapon, deviceId2, markerPOS, 0.0, FIREFLAG_NORMAL)
 	devicePOS["y"] = devicePOS["y"] - 3000
 	local deviceId3 = dlc2_CreateFloatingDevice(team, "sbOrbitalArtillery_source", devicePOS, 0.0)
-	ScheduleCall(3.2, FireWeapon, deviceId3, markerPOS, 0.0, FIREFLAG_NORMAL)
-	devicePOS["y"] = devicePOS["y"] - 3000
-	local deviceId4 = dlc2_CreateFloatingDevice(team, "sbOrbitalArtillery_source", devicePOS, 0.0)
-	ScheduleCall(3.35, FireWeapon, deviceId4, markerPOS, 0.0, FIREFLAG_NORMAL)
+	SetWeaponClientId(deviceId3, clientId)
+	ScheduleCall(3.35, FireWeapon, deviceId3, markerPOS, 0.0, FIREFLAG_NORMAL)
 	--Log("script run. param:" .. tostring(markerPOS) .. ", " .. tostring(team))
 	--Log("device id's:" .. tostring(deviceId) .. "," .. tostring(deviceId3) .. "," tostring(deviceId4))
 	
@@ -149,8 +148,12 @@ function sbHarpoonSatellite(projectileTeamId)
 end
 ------------------------------Ultimates--------------------------------------
 --mg
-function Ultimate_MG(teamId, direction, posX)
+function Ultimate_MG(teamId, direction, posX, clientId)
 	--rains hail of bullets in fired direction
+	function sbSpawnULT1Bullet(teamId, position, clientId)
+		local projectileId = dlc2_CreateProjectile("sbult_mg2", "machinegun", teamId, position, Vec3(0,4000), 20)
+		SetProjectileClientId(projectileId, clientId)
+	end
 	local extents = GetWorldExtents()
 	--effect
 	for i = 0, 7 do
@@ -158,8 +161,12 @@ function Ultimate_MG(teamId, direction, posX)
 	end
 	--bullet hail
 	for i = 4, 200 do
+	ScheduleCall(i * 0.04, sbSpawnULT1Bullet, teamId, Vec3(posX + (140 * direction * i), extents["MinY"] - 100), clientId)
+	ScheduleCall(i * 0.04, sbSpawnULT1Bullet, teamId, Vec3(posX + (140 * direction * i) + (70 * direction), extents["MinY"] - 100), clientId)
+	--[[
 		ScheduleCall(i * 0.04, dlc2_CreateProjectile, "sbult_mg2", "machinegun", teamId, Vec3(posX + (140 * direction * i), extents["MinY"] - 100), Vec3(0,4000), 20)
 		ScheduleCall(i * 0.04, dlc2_CreateProjectile, "sbult_mg2", "machinegun", teamId, Vec3(posX + (140 * direction * i) + (70 * direction), extents["MinY"] - 100), Vec3(0,4000), 20)
+	]]
 	end
 end
 -------------------EVENTS--------------------
@@ -204,7 +211,7 @@ function OnLinkHit(nodeIdA, nodeIdB, objectId, objectTeamId, objectSaveName, dam
 		OpenDoor(nodeIdA, nodeIdB, true)
 	--summon orbital artillery strike
 	elseif objectSaveName == "sbOrbitalArtilleryMarker" then
-		sbCallArtillery(pos, objectTeamId)
+		sbCallArtillery(pos, objectTeamId, GetProjectileClientId(objectId))
 	end
 	
 end
@@ -248,7 +255,7 @@ function OnDeviceHit(teamId, deviceId, saveName, newHealth, projectileNodeId, pr
 	
 	--summon orbital artillery strike
 	elseif GetNodeProjectileSaveName(projectileNodeId) == "sbOrbitalArtilleryMarker" then
-		sbCallArtillery(pos, projectileTeamId)
+		sbCallArtillery(pos, projectileTeamId, GetProjectileClientId(projectileNodeId))
 	
 	--do harpoon device steal
 	elseif GetNodeProjectileSaveName(projectileNodeId) == "sbHarpoonP1" then
@@ -280,7 +287,7 @@ function OnWeaponFired(teamId, saveName, weaponId, projectileNodeId, projectileN
 		if NodeVelocity(projectileNodeId).x < 0 then
 			direction = -1
 		end
-		Ultimate_MG(teamId, direction, GetDevicePosition(weaponId).x)
+		Ultimate_MG(teamId, direction, GetDevicePosition(weaponId).x, GetWeaponClientId(weaponId))
 	end
 end
 
