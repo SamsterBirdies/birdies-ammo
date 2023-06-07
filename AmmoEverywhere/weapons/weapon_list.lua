@@ -69,6 +69,7 @@ if sbHarpoon then
 				Prerequisite = nil,
 				Enabled = false,
 				Upgrades = {},
+				ObserverBuildEvent = true,
 			}
 		)
 	)

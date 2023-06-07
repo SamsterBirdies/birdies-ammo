@@ -134,6 +134,7 @@ table.insert(Devices, IndexOfDevice("ammo_decoy"),
 			Enabled = true,
 			BuildTimeComplete = 30,
 			PopulationCap = 1,
+			ObserverBuildEvent = true,
 		}
 	)
 )
@@ -263,6 +264,7 @@ if FindDevice("ammo_nighthawk") then
 				Prerequisite = {{"munitions","factory"}},
 				Enabled = true,
 				BuildTimeComplete = 110,
+				ObserverBuildEvent = true,
 				Upgrades =
 				{
 					{
@@ -286,6 +288,7 @@ if FindDevice("ammo_nighthawk") then
 				EnergyCost = 0,
 				Enabled = false,
 				BuildTimeComplete = 20,
+				ObserverBuildEvent = false,
 				Upgrades =
 				{
 					{
@@ -309,6 +312,7 @@ if FindDevice("ammo_nighthawk") then
 				EnergyCost = 0,
 				Enabled = false,
 				BuildTimeComplete = 0.001,
+				ObserverBuildEvent = false,
 			}
 		)
 	)
@@ -348,6 +352,7 @@ if FindDevice("ammo_nighthawk") then
 				Prerequisite = "munitions",
 				Enabled = true,
 				BuildTimeComplete = 8,
+				ObserverBuildEvent = false,
 			}
 		)
 	)
@@ -367,6 +372,7 @@ if FindDevice("ammo_nighthawk") then
 				Prerequisite = "workshop",
 				Enabled = true,
 				BuildTimeComplete = 18,
+				ObserverBuildEvent = false,
 			}
 		)
 	)
@@ -409,6 +415,7 @@ if FindDevice("ammo_orbital_sweep") then
 				Enabled = true,
 				BuildTimeComplete = 10,
 				Upgrades = {},
+				ObserverBuildEvent = false,
 			}
 		)
 	)
@@ -449,6 +456,7 @@ table.insert(Devices, IndexOfDevice("ammo_sbFirework") + 2,
 			Enabled = true,
 			BuildTimeComplete = 50,
 			PopulationCap = 1,
+			ObserverBuildEvent = true,
 		}
 	)
 )
@@ -468,6 +476,7 @@ table.insert(Devices, IndexOfDevice("ammo_sbRocketCannon") + 1,
 			Prerequisite = "workshop",
 			Enabled = true,
 			BuildTimeComplete = 45,
+			ObserverBuildEvent = true,
 		}
 	)
 )
