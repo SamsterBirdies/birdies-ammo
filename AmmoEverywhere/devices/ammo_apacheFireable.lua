@@ -46,5 +46,6 @@ dlc2_Ammunition =
 		Projectile = "sbApacheP1",
 		MinFireSpeed = 1600,
 		MaxFireSpeed = 1600.1,
+		HeatPerRound = 0.4,
 	}
 }

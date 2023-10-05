@@ -36,6 +36,7 @@ dlc2_Ammunition =
 		Weapons = { "runway", "runway2" },
 		Projectile = "sbBombGlider",
 		EnergyFireCost = 200,
+		HeatPerRound = 0.18,
 	}
 }
 Root = 

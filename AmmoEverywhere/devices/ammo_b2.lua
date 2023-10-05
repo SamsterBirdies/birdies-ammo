@@ -46,5 +46,6 @@ dlc2_Ammunition =
 		--MetalFireCost = 100,
 		--EnergyFireCost = 2000,
 		Projectile = "sbB2",
+		HeatPerRound = 0.65,
 	}
 }
