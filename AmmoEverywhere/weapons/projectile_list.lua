@@ -1155,5 +1155,16 @@ function sbProjectileBG()
 		end
 	end
 end
-
+--explosions mod support
+function sbeba_applymod()
+	if sb_EXPLOSIONS_path then
+		FindProjectile("sbArtilleryHail").Effects.Impact =
+		{
+			["default"] = SBBA_PATH .. "/effects/sbe_impact_artilleryHail.lua", 
+			["antiair"] = SBBA_PATH .. "/effects/sbe_impact_artilleryHail_air.lua",
+		}
+		FindProjectile("sbB2bomb").Effects.Impact = {["default"] = SBBA_PATH .. "/effects/sbe_impact_b2bomb.lua",}
+	end
+end
+RegisterApplyMod(sbeba_applymod)
 RegisterApplyMod(sbProjectileBG)
