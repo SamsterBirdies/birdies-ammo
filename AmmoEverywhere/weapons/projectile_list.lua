@@ -1002,8 +1002,8 @@ if sbArtillery then
 	sbArtillery.ProjectileSplashDamageMaxRadius = 130
 	sbArtillery.Gravity = sbArtillery.Gravity * 1.35
 	sbArtillery.ProjectileIncendiary = false
-	sbArtillery.ProjectileIncendiaryRadiusHeated = 10
-	sbArtillery.ProjectileIncendiaryRadius = 50
+	sbArtillery.IncendiaryRadiusHeated = 0
+	sbArtillery.IncendiaryRadius = 0
 	sbArtillery.AntiAirHitpoints = 11
 	sbArtillery.Projectile =
 	{
@@ -1156,6 +1156,7 @@ function sbProjectileBG()
 	end
 end
 --explosions mod support
+
 function sbeba_applymod()
 	if sb_EXPLOSIONS_path then
 		FindProjectile("sbArtilleryHail").Effects.Impact =
