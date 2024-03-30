@@ -543,6 +543,24 @@ if sbB2 then
 		}
 	}
 	sbB2.Effects.Age = { ['t40'] = { Effect = nil, Projectile = { Count = 1, Type = "sbB2P2", StdDev = 0 }, Terminate = true, Splash = false, KeepHitpointLoss = true,}}
+	--controllable planes config
+	sbB2.sb_planes =
+	{
+		elevator = 40000,
+		thrust = 15000,
+		throttle_multiplier = 0.4,
+		lift_multiplier = 4.3,
+		advanced_physics = true,
+		weapon1 = {projectile = "sbB2bomb", rotation = 1.5708, distance = 200, speed = 300, count = 60, period = 0.04, timer = 23, stddev = 0, effect = "mods/dlc2/effects/bomb_release.lua"},
+		weapon2 = {projectile = "machinegun", rotation = 0, distance = 600, speed = 6000, count = 6, period = 0.08, timer = 0.48, stddev = 0.03, effect = "effects/sniper_flash.lua"},
+		weapon3 = {projectile = "paveway", rotation = 1.5708, distance = 200, speed = 0, count = 0, period = 0, timer = 15, stddev = 0, effect = ""},
+	}
+	sbB2.sb_planes_overrides =
+	{
+		ProjectileDrag = 4,
+		MaxAge = 1984,
+		Gravity = 981,
+	}
 	--phase 2, bomb dropping
 	local sbB2P2 = DeepCopy(sbB2)
 	if sbB2P2 then
@@ -737,6 +755,24 @@ if sbBiP1 then
 	sbBiP1.Effects.Impact["default"] = { Effect = nil, Projectile = { Count = 1, Type = "sbBiplaneCrashing", StdDev = 0,}, Offset = -500, Terminate = true, Splash = false,}
 	sbBiP1.Effects.Impact["whitecaps"] = { Effect = nil, Projectile = { Count = 1, Type = "sbBiplaneCrashing", StdDev = 0,}, Offset = -500, Terminate = true, Splash = false,}
 	sbBiP1.Effects.Age = {t100 = { Effect = path .. "/effects/bomb_hatch.lua", Projectile = { Count = 1, Type = "sbBiplaneP2", StdDev = 0.0 }, Offset = 0, Terminate = true, Splash = false, KeepHitpointLoss = true,}}
+	--controllable planes config
+	sbBiP1.sb_planes =
+	{
+		elevator = 20000,
+		thrust = 5100,
+		throttle_multiplier = 0.5,
+		lift_multiplier = 9.15,
+		advanced_physics = true,
+		weapon2 = {projectile = "machinegun", rotation = 0, distance = 400, speed = 4000, count = 7, period = 0.2, timer = 3.2, stddev = 0.045, effect = "effects/sniper_flash.lua"},
+		weapon1 = {projectile = "sbFlechetteP1", rotation = 1.5708, distance = 400, speed = 400, count = 20, period = 0.04, timer = 8, stddev = 0},
+		weapon3 = {projectile = "paveway", rotation = 1.5708, distance = 200, speed = 0, count = 0, period = 0, timer = 15, stddev = 0, effect = ""},
+	}
+	sbBiP1.sb_planes_overrides =
+	{
+		ProjectileDrag = 3,
+		MaxAge = 1984,
+		Gravity = 981,
+	}
 	--second phase (dropping flechettes)
 	local sbBiP2 = DeepCopy(sbBiP1)
 	sbBiP2.SaveName = "sbBiplaneP2"
@@ -1159,12 +1195,18 @@ end
 
 function sbeba_applymod()
 	if sb_EXPLOSIONS_path then
-		FindProjectile("sbArtilleryHail").Effects.Impact =
-		{
-			["default"] = SBBA_PATH .. "/effects/sbe_impact_artilleryHail.lua", 
-			["antiair"] = SBBA_PATH .. "/effects/sbe_impact_artilleryHail_air.lua",
-		}
-		FindProjectile("sbB2bomb").Effects.Impact = {["default"] = SBBA_PATH .. "/effects/sbe_impact_b2bomb.lua",}
+		local sbartillery = FindProjectile("sbArtilleryHail")
+		if sbartillery then
+			sbartillery.Effects.Impact =
+			{
+				["default"] = SBBA_PATH .. "/effects/sbe_impact_artilleryHail.lua", 
+				["antiair"] = SBBA_PATH .. "/effects/sbe_impact_artilleryHail_air.lua",
+			}
+		end
+		local b2bomb = FindProjectile("sbB2bomb")
+		if b2bomb then
+			b2bomb.Effects.Impact = {["default"] = SBBA_PATH .. "/effects/sbe_impact_b2bomb.lua",}
+		end
 	end
 end
 RegisterApplyMod(sbeba_applymod)
