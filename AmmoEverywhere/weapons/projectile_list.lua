@@ -22,6 +22,13 @@ if sbFMJmg then
 	sbFMJmg.WeaponDamageBonus = 0
 	sbFMJmg.ProjectileMass = 0.5
 	sbFMJmg.MomentumThreshold = { ["bracing"] = { Reflect = 1, Penetrate = 100 },}
+	sbFMJmg.Effects.Penetrate =
+	{
+		["default"] = "effects/bullet_bracing_hit.lua",
+		["armour"] = "effects/bullet_armor_hit.lua",
+		["door"] = "effects/bullet_armor_hit.lua",
+		["shield"] = "effects/energy_shield_ricochet.lua",
+	}
 	table.insert(Projectiles, sbFMJmg)
 	SetDamageMultiplier("sbFMJmachinegun", { SaveName = "bracing", Direct = 1.5 })
 end
@@ -39,6 +46,13 @@ if sbFMJsniper then
 	sbFMJsniper.DeviceDamageBonus = 5
 	sbFMJsniper.WeaponDamageBonus = 40
 	sbFMJsniper.ProjectileMass = 1
+	sbFMJsniper.Effects.Penetrate =
+	{
+		["default"] = "effects/bullet_bracing_hit.lua",
+		["armour"] = "effects/bullet_armor_hit.lua",
+		["door"] = "effects/bullet_armor_hit.lua",
+		["shield"] = "effects/energy_shield_ricochet.lua",
+	}
 	sbFMJsniper.MomentumThreshold = { ["bracing"] = { Reflect = 1, Penetrate = 100 },}
 	table.insert(Projectiles, sbFMJsniper)
 	SetDamageMultiplier("sbFMJsniper", { SaveName = "minigun", Direct = 0.685 })
@@ -54,6 +68,13 @@ if sbFMJminigun then
 	sbFMJminigun.WeaponDamageBonus = -3
 	sbFMJminigun.ProjectileMass = 0.5
 	sbFMJminigun.MomentumThreshold = { ["bracing"] = { Reflect = 1, Penetrate = 100 },}
+	sbFMJminigun.Effects.Penetrate =
+	{
+		["default"] = "effects/bullet_bracing_hit.lua",
+		["armour"] = "effects/bullet_armor_hit.lua",
+		["door"] = "effects/bullet_armor_hit.lua",
+		["shield"] = "effects/energy_shield_ricochet.lua",
+	}
 	sbFMJminigun.DamageMultiplier = {}
 	table.insert(Projectiles, sbFMJminigun)
 	SetDamageMultiplier("sbFMJminigun", { SaveName = "bracing", Direct = 1.2 })
@@ -66,6 +87,13 @@ if sbFMJshotgun then
 	sbFMJshotgun.DeviceDamageBonus = 5
 	sbFMJshotgun.WeaponDamageBonus = -5
 	sbFMJshotgun.ProjectileMass = 0.5
+	sbFMJshotgun.Effects.Penetrate =
+	{
+		["default"] = "effects/bullet_bracing_hit.lua",
+		["armour"] = "effects/bullet_armor_hit.lua",
+		["door"] = "effects/bullet_armor_hit.lua",
+		["shield"] = "effects/energy_shield_ricochet.lua",
+	}
 	sbFMJshotgun.DamageMultiplier = {}
 	sbFMJshotgun.MomentumThreshold = { ["bracing"] = { Reflect = 1, Penetrate = 100 },}
 	table.insert(Projectiles, sbFMJshotgun)
@@ -930,6 +958,13 @@ if FindProjectile("decoy") then --only if high seas is enabled
 		sbHarpoonP1.DrawBlurredProjectile = false
 		sbHarpoonP1.ProjectileSplashMaxForce = 0
 		sbHarpoonP1.PenetrationDamage = 500
+		sbHarpoonP1.Effects.Penetrate =
+		{
+			["default"] = "effects/bullet_bracing_hit.lua",
+			["armour"] = "effects/bullet_armor_hit.lua",
+			["door"] = "effects/bullet_armor_hit.lua",
+			["shield"] = "effects/energy_shield_ricochet.lua",
+		}
 		sbHarpoonP1.AntiAirDamage = 40
 		sbHarpoonP1.Impact = 0
 		sbHarpoonP1.ProjectileShootDownRadius = 15
