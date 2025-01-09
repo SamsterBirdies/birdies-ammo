@@ -78,7 +78,9 @@ if sbHarpoon then
 		local sbHarpoonInterWeapon = FindWeapon("sbHarpoonInterWeapon")
 		for k, v in pairs(Weapons) do
 			if v.SaveName ~= "sbHarpoonInterWeapon" then
-				if v.BuildOnGroundOnly or v.BuildOnOreOnly then
+				if v.BuildOnGroundOnly or v.BuildOnOreOnly 
+				or v.SaveName == "sbOrbitalArtillery_source" or v.SaveName == "sbOrbitalArtillerySpread_source"
+				then
 					--pass
 				else
 					table.insert(sbHarpoonInterWeapon.Upgrades,
