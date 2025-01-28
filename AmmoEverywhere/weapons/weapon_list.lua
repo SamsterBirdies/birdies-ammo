@@ -17,6 +17,7 @@ if sbOrbArtillery then
 				RequiresSpotterToFire = false,
 				AnimationScript = nil,
 				BuildOnGroundOnly = true,
+				Upgrades = {},
 			}
 		)
 	)
@@ -35,6 +36,7 @@ if sbOrbArtillery then
 				RequiresSpotterToFire = false,
 				AnimationScript = nil,
 				BuildOnGroundOnly = true,
+				Upgrades = {},
 			}
 		)
 	)
@@ -80,6 +82,7 @@ if sbHarpoon then
 			if v.SaveName ~= "sbHarpoonInterWeapon" then
 				if v.BuildOnGroundOnly or v.BuildOnOreOnly 
 				or v.SaveName == "sbOrbitalArtillery_source" or v.SaveName == "sbOrbitalArtillerySpread_source"
+				or v.SaveName == "sbshotgunminigun"
 				then
 					--pass
 				else
