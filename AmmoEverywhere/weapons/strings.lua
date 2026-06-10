@@ -65,4 +65,5 @@ Merge(Weapon,
 {
 	--context buttons
 	ammo_sbStandard = L"Standard Rounds",
+	sbba_b2bombs = L"Bombs",
 })

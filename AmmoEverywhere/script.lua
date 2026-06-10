@@ -241,7 +241,7 @@ end
 
 function OnDeviceHit(teamId, deviceId, saveName, newHealth, projectileNodeId, projectileTeamId, pos)
 	--apache return to runway
-	if saveName == "runway" or saveName == "runway2" then
+	if saveName == "runway" or saveName == "runway2" or saveName == "sbpp_runway3" then
 		if GetNodeProjectileSaveName(projectileNodeId) == "sbApacheP3" then
 			sbReturnApache(deviceId, projectileNodeId)
 		end

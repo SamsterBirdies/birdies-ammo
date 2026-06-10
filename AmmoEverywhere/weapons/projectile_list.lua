@@ -466,11 +466,14 @@ if FindProjectile("nighthawk") or FindProjectile("thunderbolt") then
 		{
 			['runway'] = {Effect = nil, Terminate = true, Splash = false},
 			['runway2'] = {Effect = nil, Terminate = true, Splash = false},
+			['sbpp_runway3'] = {Effect = nil, Terminate = true, Splash = false},
 		}
 		sbApacheP3.DamageMultiplier =
 		{
 			{ SaveName = "runway", Direct = 0, Splash = 0 },
 			{ SaveName = "runway2", Direct = 0, Splash = 0 },
+			{ SaveName = "sbpp_runway3", Direct = 0, Splash = 0 },
+			
 		}
 		sbApacheP3.ProjectileDamage = 200
 		sbApacheP3.ProjectileSplashDamage = 175
@@ -516,6 +519,28 @@ if sbBombGlider then
 			PivotOffset = {0, -0.242},
 			--Scale = 1.6,
 		}
+	}
+	sbBombGlider.sb_planes =
+	{
+		elevator = 80000,
+		thrust = 15000,
+		throttle_min = 1,
+		throttle_max = 1,
+		lift_multiplier = 0,
+		advanced_physics = true,
+	}
+	sbBombGlider.sb_planes_overrides =
+	{
+		Effects =
+		{
+			Impact = 
+			{
+				firebeam = "mods/dlc2/effects/impact_bombs.lua",
+				default = "mods/dlc2/effects/impact_bombs.lua",
+				antiair = "effects/mortar_air_burst.lua",
+			}
+		},
+		ProjectileDrag = 4
 	}
 	--bomb
 	local sbBombGliderBomb = DeepCopy(sbBombGlider)
@@ -579,15 +604,33 @@ if sbB2 then
 		throttle_multiplier = 0.4,
 		lift_multiplier = 4.3,
 		advanced_physics = true,
-		weapon1 = {projectile = "sbB2bomb", rotation = 1.5708, distance = 200, speed = 300, count = 60, period = 0.04, timer = 23, stddev = 0, effect = "mods/dlc2/effects/bomb_release.lua"},
-		weapon2 = {projectile = "machinegun", rotation = 0, distance = 600, speed = 6000, count = 6, period = 0.08, timer = 0.48, stddev = 0.03, effect = "effects/sniper_flash.lua"},
-		weapon3 = {projectile = "paveway", rotation = 1.5708, distance = 200, speed = 0, count = 0, period = 0, timer = 15, stddev = 0, effect = ""},
+		weapon1 = 
+		{
+			projectile = "sbB2bomb", 
+			rotation = 1.5708, 
+			distance = 200, 
+			speed = 300, 
+			count = 60, 
+			period = 0.04, 
+			timer = 23, 
+			stddev = 0, 
+			effect = "mods/dlc2/effects/bomb_release.lua", 
+			name = "$Weapon.sbba_b2bombs",
+		},
 	}
 	sbB2.sb_planes_overrides =
 	{
 		ProjectileDrag = 4,
 		MaxAge = 1984,
 		Gravity = 981,
+		Effects =
+		{
+			Impact =
+			{
+				default = "mods/dlc2/effects/nighthawk_explode.lua",
+				firebeam = { Effect = nil, Projectile = { Count = 1, Type = "flamingsbB2", StdDev = 0, }, Terminate = true, Splash = false,},
+			}
+		},
 	}
 	--phase 2, bomb dropping
 	local sbB2P2 = DeepCopy(sbB2)
