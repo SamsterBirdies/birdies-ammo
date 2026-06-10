@@ -1071,7 +1071,7 @@ if sbArtillery then
 	sbArtillery.ProjectileDamage = 100
 	sbArtillery.ProjectileSplashDamage = 90
 	sbArtillery.ProjectileSplashDamageMaxRadius = 130
-	sbArtillery.Gravity = sbArtillery.Gravity * 1.35
+	sbArtillery.Gravity = 0 --coding too hard. old value: sbArtillery.Gravity * 1.35 
 	sbArtillery.ProjectileIncendiary = false
 	sbArtillery.IncendiaryRadiusHeated = 0
 	sbArtillery.IncendiaryRadius = 0
@@ -1196,6 +1196,26 @@ SetDamageMultiplier("ol_beam_sweep", { SaveName = "sbSatteliteProjectile", AntiA
 SetDamageMultiplier("ol_beam_focus", { SaveName = "sbSatteliteProjectile", AntiAir = 0 })
 SetDamageMultiplier("firebeam", { SaveName = "sbSatteliteProjectile", AntiAir = 0 })
 SetDamageMultiplier("laser", { SaveName = "sbSatteliteProjectile", AntiAir = 0 })
+---------------------------------CANNON ALTERNATIVES------------------------------------
+local apcannon = DeepCopy(FindProjectile("cannon"))
+if apcannon then
+	apcannon.SaveName = "sbAPCannon"
+	apcannon.PenetrationDamage = 500
+	apcannon.ProjectileSplashDamage = apcannon.ProjectileSplashDamage / 2
+	apcannon.ProjectileSplashDamageMaxRadius = apcannon.ProjectileSplashDamageMaxRadius / 2
+	table.insert(Projectiles, apcannon)
+end
+local hecannon = DeepCopy(FindProjectile("cannon"))
+if hecannon then
+	hecannon.SaveName = "sbHECannon"
+	hecannon.ProjectileDamage = 150
+	hecannon.ProjectileSplashDamage = hecannon.ProjectileSplashDamage * 2.5
+	hecannon.WeaponDamageBonus = 150
+	hecannon.DeviceDamageBonus = 150
+	hecannon.ExplodeOnTouch = true
+	table.insert(Projectiles, hecannon)
+	MakeFlamingVersion("sbHECannon", 1.25,	0.4, flamingTrail, 75, nil, nil)
+end
 -----------------------------ultimates---------------------------------------------------
 local sbultmg1 = DeepCopy(FindProjectile("machinegun"))
 if sbultmg1 then

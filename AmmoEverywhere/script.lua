@@ -1,4 +1,6 @@
 dofile("scripts/forts.lua")
+dofile(path .. "/scripts/math.lua")
+gravity = 981
 -------------------------Apache-------------------------
 function sbReturnApache(deviceId, projectileNodeId)
 	local teamId = GetDeviceTeamIdActual(deviceId)
@@ -18,10 +20,27 @@ function sbReturnApache(deviceId, projectileNodeId)
 	CloseWeaponDoors(deviceId)
 end
 -----------------------Artillery barrage----------------
+function sbFireArtillery(team, pos, destPos, count)
+	local count = count or 12
+	local period = 1.5
+	local stdDev = 0.03
+	local speed = 3000
+	local angle = RadVec2Vec(pos, destPos)
+	angle = GetNormalFloat(stdDev, angle, "artillery angle")
+	if angle then
+		dlc2_CreateProjectile("sbArtilleryHail", "sbOrbitalArtillery", team, pos, MultiplyVec(Rad2Vec(angle), speed), 60)
+		SpawnEffect(path .. "/effects/fire_hail.lua", pos)
+	end
+	count = count - 1
+	if count > 0 then
+		ScheduleCall(period, sbFireArtillery, team, pos, destPos, count)
+	end
+end
 function sbCallArtillery(markerPOS, team, clientId)
 	--get position to place weapon
 	local extents = GetWorldExtents()
-	local devicePOS = Vec3(0,-12000,0)
+	local devicePOS = Vec3(0,0,0)
+	local angle = 90
 	--if neither team 1 or team 2 then assign one closest to the projectile
 	if team%100 ~= 1 and team%100 ~= 2 then
 		if markerPOS["x"] > 0 then
@@ -35,32 +54,14 @@ function sbCallArtillery(markerPOS, team, clientId)
 		devicePOS = Vec3(extents["MinX"] + 200, extents["MinY"] - 2000, 0)
 	elseif team%100 == 2 then
 		devicePOS = Vec3(extents["MaxX"] - 200, extents["MinY"] - 2000, 0)
+		angle = -90
 	end
-	--place weapon and fire
-	EnableWeapon("sbOrbitalArtillery_source", true, 1)
-	EnableWeapon("sbOrbitalArtillery_source", true, 2)
-	EnableWeapon("sbOrbitalArtillerySpread_source", true, 1)
-	EnableWeapon("sbOrbitalArtillerySpread_source", true, 2)
-	local deviceId = dlc2_CreateFloatingDevice(team, "sbOrbitalArtillerySpread_source", devicePOS, 0.0)
-	SetWeaponClientId(deviceId, clientId)
-	ScheduleCall(2.5, FireWeapon, deviceId, markerPOS, 0.0, FIREFLAG_NORMAL)
-	--make higher weapons for more spread and new angles
-	devicePOS["y"] = devicePOS["y"] - 6000
-	local deviceId2 = dlc2_CreateFloatingDevice(team, "sbOrbitalArtillery_source", devicePOS, 0.0)
-	SetWeaponClientId(deviceId2, clientId)
-	ScheduleCall(3.1, FireWeapon, deviceId2, markerPOS, 0.0, FIREFLAG_NORMAL)
-	devicePOS["y"] = devicePOS["y"] - 3000
-	local deviceId3 = dlc2_CreateFloatingDevice(team, "sbOrbitalArtillery_source", devicePOS, 0.0)
-	SetWeaponClientId(deviceId3, clientId)
-	ScheduleCall(3.35, FireWeapon, deviceId3, markerPOS, 0.0, FIREFLAG_NORMAL)
-	--Log("script run. param:" .. tostring(markerPOS) .. ", " .. tostring(team))
-	--Log("device id's:" .. tostring(deviceId) .. "," .. tostring(deviceId3) .. "," tostring(deviceId4))
-	
-	EnableWeapon("sbOrbitalArtillery_source", false, 1)
-	EnableWeapon("sbOrbitalArtillery_source", false, 2)
-	EnableWeapon("sbOrbitalArtillerySpread_source", false, 1)
-	EnableWeapon("sbOrbitalArtillerySpread_source", false, 2)
-	--continue to event OnWeaponFiredEnd to delete device
+	local devicePOS2 = AddVec(devicePOS, Vec3(0,-6000))
+	local devicePOS3 = AddVec(devicePOS, Vec3(0,-9000))
+	--fire projectiles.
+	ScheduleCall(2.5, sbFireArtillery, team, devicePOS, markerPOS)
+	ScheduleCall(3.1, sbFireArtillery, team, devicePOS2, markerPOS)
+	ScheduleCall(3.35, sbFireArtillery, team, devicePOS3, markerPOS)
 end
 ----------------------Harpoon harpoon-------------------
 function sbHarpoonDelayedWeapon(deviceTeamId, nodeIdA, nodeIdB, linkPos, saveName)
@@ -183,7 +184,7 @@ function Load(gameStart)
 	end
 	
 	--hide hidden items
-	EnableWeapon("sbOrbitalArtillery_source", false, 1)
+	--[[EnableWeapon("sbOrbitalArtillery_source", false, 1)
 	EnableWeapon("sbOrbitalArtillery_source", false, 2)
 	EnableWeapon("sbOrbitalArtillerySpread_source", false, 1)
 	EnableWeapon("sbOrbitalArtillerySpread_source", false, 2)
@@ -198,7 +199,7 @@ function Load(gameStart)
 	EnableWeapon("sbHarpoonInterWeapon", false, 1)
 	EnableWeapon("sbHarpoonInterWeapon", false, 2)
 	EnableWeapon("sbSatteliteWeapon", false, 1)
-	EnableWeapon("sbSatteliteWeapon", false, 2)
+	EnableWeapon("sbSatteliteWeapon", false, 2)]]
 	
 end
 
@@ -290,13 +291,13 @@ function OnWeaponFired(teamId, saveName, weaponId, projectileNodeId, projectileN
 		Ultimate_MG(teamId, direction, GetDevicePosition(weaponId).x, GetWeaponClientId(weaponId))
 	end
 end
-
+--[[
 function OnWeaponFiredEnd(teamId, saveName, weaponId)
 	--remove artillery source weapon once done firing
 	if saveName == "sbOrbitalArtillery_source" or saveName == "sbOrbitalArtillerySpread_source" then
 		DestroyDeviceById(weaponId)
 	end
-end
+end]]
 
 function OnDeviceCompleted(teamId, deviceId, saveName)
 	--upgrade apache ammo types to consumable type
